@@ -159,6 +159,135 @@ export default {
         port: '9101',
       },
     },
+    showcase: {
+      label: 'Product UI',
+      title: 'Real Product Interface — What You See Is What You Get',
+      desc: 'Below are real screenshots of the Taurus Web management console, covering core ops scenarios such as host management, batch execution, script library, workflow orchestration, and execution records.',
+      categories: [
+        {
+          key: 'dashboard',
+          name: 'Overview Dashboard',
+          screenshots: [
+            {
+              file: 'home.png',
+              title: 'Ops Overview',
+              desc: 'Host online status, task execution summary, and alerts on a single screen',
+            },
+          ],
+        },
+        {
+          key: 'host',
+          name: 'Host Management',
+          screenshots: [
+            {
+              file: 'my-host.png',
+              title: 'My Hosts',
+              desc: 'Host asset onboarding, grouping & tags, and unified online status management',
+            },
+            {
+              file: 'registration-token.png',
+              title: 'Registration Token',
+              desc: 'One-time registration token + IP whitelist for secure host onboarding',
+            },
+            {
+              file: 'heartbeat-hosts.png',
+              title: 'Heartbeat Hosts',
+              desc: 'Real-time heartbeat reporting with second-level online/offline detection',
+            },
+            {
+              file: 'heartbeat-record.png',
+              title: 'Heartbeat Records',
+              desc: 'Complete heartbeat history for anomaly backtracking and auditing',
+            },
+          ],
+        },
+        {
+          key: 'execution',
+          name: 'Execution Center',
+          screenshots: [
+            {
+              file: 'run-command.png',
+              title: 'Remote Command',
+              desc: 'High-performance gRPC-based remote command execution with real-time streaming output',
+            },
+            {
+              file: 'run-script.png',
+              title: 'Script Execution',
+              desc: 'Shell / Python script template execution with batch dispatch support',
+            },
+            {
+              file: 'run-detail.png',
+              title: 'Execution Detail',
+              desc: 'Per-host execution results with layered display and on-demand stdout/stderr loading',
+            },
+            {
+              file: 'rerun.png',
+              title: 'Rerun',
+              desc: 'One-click rerun for failed hosts with precise retry in partial-success scenarios',
+            },
+          ],
+        },
+        {
+          key: 'script',
+          name: 'Script Library',
+          screenshots: [
+            {
+              file: 'script-library.png',
+              title: 'Script Library',
+              desc: 'Script versioning, category tags, and parameterized templates',
+            },
+          ],
+        },
+        {
+          key: 'records',
+          name: 'Execution Records',
+          screenshots: [
+            {
+              file: 'execution-records.png',
+              title: 'Execution Records',
+              desc: 'Full execution history search with filters by host, script, and time',
+            },
+            {
+              file: 'execution-log.png',
+              title: 'Execution Logs',
+              desc: 'Complete stdout/stderr log retention for audit and compliance',
+            },
+          ],
+        },
+        {
+          key: 'workflow',
+          name: 'Workflow',
+          screenshots: [
+            {
+              file: 'job-management.png',
+              title: 'Job Management',
+              desc: 'Visual workflow orchestration with unified multi-step task scheduling',
+            },
+            {
+              file: 'job-exec-detail.png',
+              title: 'Job Execution Detail',
+              desc: 'Overall job execution progress and real-time per-node status tracking',
+            },
+            {
+              file: 'job-node-exec-detail.png',
+              title: 'Node Execution Detail',
+              desc: 'Deep dive into single-node execution logs and results',
+            },
+          ],
+        },
+        {
+          key: 'program',
+          name: 'Program Management',
+          screenshots: [
+            {
+              file: 'program-commands.png',
+              title: 'Program Commands',
+              desc: 'Remote program install, start/stop/restart, and batch config dispatch',
+            },
+          ],
+        },
+      ],
+    },
   },
 
   solutions: {

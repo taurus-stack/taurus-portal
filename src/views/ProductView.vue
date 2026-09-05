@@ -3,6 +3,7 @@ import { computed } from 'vue'
 import { useHead } from '@vueuse/head'
 import { useRoute } from 'vue-router'
 import { useI18n } from 'vue-i18n'
+import ProductShowcase from '@/components/sections/ProductShowcase.vue'
 
 const route = useRoute()
 useHead(() => ({
@@ -127,6 +128,8 @@ const metrics = computed(() => [
         </div>
       </div>
     </section>
+
+    <ProductShowcase />
 
     <section class="pv-cta">
       <div class="container">

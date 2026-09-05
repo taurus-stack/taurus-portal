@@ -119,6 +119,135 @@ export default {
         port: '9101',
       },
     },
+    showcase: {
+      label: '產品介面',
+      title: '真實產品介面，所見即所得',
+      desc: '以下為 Taurus Web 管理控制台的真實介面截圖，涵蓋主機管理、批次執行、腳本庫、工作流編排、執行記錄等核心運維場景。',
+      categories: [
+        {
+          key: 'dashboard',
+          name: '總覽儀表板',
+          screenshots: [
+            {
+              file: 'home.png',
+              title: '運維總覽',
+              desc: '主機線上狀態、任務執行概覽與告警資訊一屏掌控',
+            },
+          ],
+        },
+        {
+          key: 'host',
+          name: '主機管理',
+          screenshots: [
+            {
+              file: 'my-host.png',
+              title: '我的主機',
+              desc: '主機資產納管、分組標籤與線上狀態統一管理',
+            },
+            {
+              file: 'registration-token.png',
+              title: '註冊令牌',
+              desc: '一次性註冊令牌 + IP 白名單，安全接入新主機',
+            },
+            {
+              file: 'heartbeat-hosts.png',
+              title: '心跳主機',
+              desc: '即時心跳上報，秒級感知主機線上/離線狀態',
+            },
+            {
+              file: 'heartbeat-record.png',
+              title: '心跳記錄',
+              desc: '完整心跳歷史留痕，支援異常回溯與稽核',
+            },
+          ],
+        },
+        {
+          key: 'execution',
+          name: '執行中心',
+          screenshots: [
+            {
+              file: 'run-command.png',
+              title: '遠端命令',
+              desc: '基於 gRPC 的高效能遠端命令執行，即時串流輸出',
+            },
+            {
+              file: 'run-script.png',
+              title: '腳本執行',
+              desc: 'Shell / Python 腳本模板化執行，支援批次下發',
+            },
+            {
+              file: 'run-detail.png',
+              title: '執行詳情',
+              desc: '逐主機執行結果分層展示，stdout/stderr 按需載入',
+            },
+            {
+              file: 'rerun.png',
+              title: '失敗重跑',
+              desc: '失敗主機一鍵重跑，支援部分成功場景精準重試',
+            },
+          ],
+        },
+        {
+          key: 'script',
+          name: '腳本庫',
+          screenshots: [
+            {
+              file: 'script-library.png',
+              title: '腳本庫',
+              desc: '腳本版本管理、分類標籤與參數化模板',
+            },
+          ],
+        },
+        {
+          key: 'records',
+          name: '執行記錄',
+          screenshots: [
+            {
+              file: 'execution-records.png',
+              title: '執行記錄',
+              desc: '全量執行歷史檢索，支援按主機、腳本、時間篩選',
+            },
+            {
+              file: 'execution-log.png',
+              title: '執行日誌',
+              desc: '完整 stdout/stderr 日誌留痕，滿足稽核合規要求',
+            },
+          ],
+        },
+        {
+          key: 'workflow',
+          name: '工作流',
+          screenshots: [
+            {
+              file: 'job-management.png',
+              title: '任務管理',
+              desc: '可視化工作流編排，多步驟任務統一排程',
+            },
+            {
+              file: 'job-exec-detail.png',
+              title: '任務執行詳情',
+              desc: '任務整體執行進度與各節點狀態即時追蹤',
+            },
+            {
+              file: 'job-node-exec-detail.png',
+              title: '節點執行詳情',
+              desc: '單節點執行日誌與結果深度下鑽分析',
+            },
+          ],
+        },
+        {
+          key: 'program',
+          name: '程式管理',
+          screenshots: [
+            {
+              file: 'program-commands.png',
+              title: '程式命令',
+              desc: '遠端程式安裝、啟停、重啟與配置批次下發',
+            },
+          ],
+        },
+      ],
+    },
   },
 
   solutions: {

@@ -119,6 +119,135 @@ export default {
         port: '9101',
       },
     },
+    showcase: {
+      label: '产品界面',
+      title: '真实产品界面，所见即所得',
+      desc: '以下为 Taurus Web 管理控制台的真实界面截图，覆盖主机管理、批量执行、脚本库、工作流编排、执行记录等核心运维场景。',
+      categories: [
+        {
+          key: 'dashboard',
+          name: '总览仪表盘',
+          screenshots: [
+            {
+              file: 'home.png',
+              title: '运维总览',
+              desc: '主机在线状态、任务执行概览与告警信息一屏掌控',
+            },
+          ],
+        },
+        {
+          key: 'host',
+          name: '主机管理',
+          screenshots: [
+            {
+              file: 'my-host.png',
+              title: '我的主机',
+              desc: '主机资产纳管、分组标签与在线状态统一管理',
+            },
+            {
+              file: 'registration-token.png',
+              title: '注册令牌',
+              desc: '一次性注册令牌 + IP 白名单，安全接入新主机',
+            },
+            {
+              file: 'heartbeat-hosts.png',
+              title: '心跳主机',
+              desc: '实时心跳上报，秒级感知主机在线/离线状态',
+            },
+            {
+              file: 'heartbeat-record.png',
+              title: '心跳记录',
+              desc: '完整心跳历史留痕，支持异常回溯与审计',
+            },
+          ],
+        },
+        {
+          key: 'execution',
+          name: '执行中心',
+          screenshots: [
+            {
+              file: 'run-command.png',
+              title: '远程命令',
+              desc: '基于 gRPC 的高性能远程命令执行，实时流式输出',
+            },
+            {
+              file: 'run-script.png',
+              title: '脚本执行',
+              desc: 'Shell / Python 脚本模板化执行，支持批量下发',
+            },
+            {
+              file: 'run-detail.png',
+              title: '执行详情',
+              desc: '逐主机执行结果分层展示，stdout/stderr 按需加载',
+            },
+            {
+              file: 'rerun.png',
+              title: '失败重跑',
+              desc: '失败主机一键重跑，支持部分成功场景精准重试',
+            },
+          ],
+        },
+        {
+          key: 'script',
+          name: '脚本库',
+          screenshots: [
+            {
+              file: 'script-library.png',
+              title: '脚本库',
+              desc: '脚本版本管理、分类标签与参数化模板',
+            },
+          ],
+        },
+        {
+          key: 'records',
+          name: '执行记录',
+          screenshots: [
+            {
+              file: 'execution-records.png',
+              title: '执行记录',
+              desc: '全量执行历史检索，支持按主机、脚本、时间筛选',
+            },
+            {
+              file: 'execution-log.png',
+              title: '执行日志',
+              desc: '完整 stdout/stderr 日志留痕，满足审计合规要求',
+            },
+          ],
+        },
+        {
+          key: 'workflow',
+          name: '工作流',
+          screenshots: [
+            {
+              file: 'job-management.png',
+              title: '任务管理',
+              desc: '可视化工作流编排，多步骤任务统一调度',
+            },
+            {
+              file: 'job-exec-detail.png',
+              title: '任务执行详情',
+              desc: '任务整体执行进度与各节点状态实时追踪',
+            },
+            {
+              file: 'job-node-exec-detail.png',
+              title: '节点执行详情',
+              desc: '单节点执行日志与结果深度下钻分析',
+            },
+          ],
+        },
+        {
+          key: 'program',
+          name: '程序管理',
+          screenshots: [
+            {
+              file: 'program-commands.png',
+              title: '程序命令',
+              desc: '远程程序安装、启停、重启与配置批量下发',
+            },
+          ],
+        },
+      ],
+    },
   },
 
   solutions: {
