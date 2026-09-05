@@ -1,7 +1,7 @@
 // English locale · footer (fully translated P3)
 export default {
   slogan:
-    'Taurus Stack (CloudPivot) is an enterprise-grade, distributed and unified operations management platform. It covers host inventory, automation, application deployments, monitoring & alerting, and secure authentication end-to-end — helping teams raise standardization, automation and security to production-grade levels.',
+    'Taurus (CloudPivot) is an enterprise-grade, distributed and unified operations management platform. It covers host inventory, automation, application deployments, monitoring & alerting, and secure authentication end-to-end — helping teams raise standardization, automation and security to production-grade levels.',
   titleProduct: 'Product modules',
   titleSolutions: 'Solutions',
   titleResources: 'Resources',

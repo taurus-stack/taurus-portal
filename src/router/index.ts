@@ -22,9 +22,9 @@ const router = createRouter({
       name: 'home',
       component: HomeView,
       meta: {
-        title: 'Taurus Stack — 企业级分布式运维平台',
+        title: 'Taurus — 企业级分布式运维平台',
         description:
-          'Taurus Stack（云枢）— 企业级分布式一体化运维管理平台。覆盖主机管理、自动化运维、程序部署、监控告警、安全认证全场景。',
+          'Taurus（云枢）— 企业级分布式一体化运维管理平台。覆盖主机管理、自动化运维、程序部署、监控告警、安全认证全场景。',
       } as RouteMeta,
     },
     {
@@ -32,9 +32,9 @@ const router = createRouter({
       name: 'product',
       component: ProductView,
       meta: {
-        title: '产品功能 · Taurus Stack',
+        title: '产品功能 · Taurus',
         description:
-          'Taurus Stack 六大核心模块：Web 控制台、Backend API、Executor 执行器、Supervisor 守护进程、Auth 认证服务、Scheduler 调度服务。',
+          'Taurus 六大核心模块：Web 控制台、Backend API、Executor 执行器、Supervisor 守护进程、Auth 认证服务、Scheduler 调度服务。',
       } as RouteMeta,
     },
     {
@@ -42,9 +42,9 @@ const router = createRouter({
       name: 'solutions',
       component: SolutionsView,
       meta: {
-        title: '解决方案 · Taurus Stack',
+        title: '解决方案 · Taurus',
         description:
-          '面向金融、互联网、政务/央企、制造业的 Taurus Stack 行业运维解决方案，等保合规、零停机升级、大规模纳管、信创兼容。',
+          '面向金融、互联网、政务/央企、制造业的 Taurus 行业运维解决方案，等保合规、零停机升级、大规模纳管、信创兼容。',
       } as RouteMeta,
     },
     {
@@ -52,8 +52,8 @@ const router = createRouter({
       name: 'docs',
       component: DocsView,
       meta: {
-        title: '文档中心 · Taurus Stack',
-        description: 'Taurus Stack 快速开始、部署指南、架构说明、API 文档、常见问题 FAQ。',
+        title: '文档中心 · Taurus',
+        description: 'Taurus 快速开始、部署指南、架构说明、API 文档、常见问题 FAQ。',
       } as RouteMeta,
     },
     {
@@ -61,8 +61,8 @@ const router = createRouter({
       name: 'download',
       component: DownloadView,
       meta: {
-        title: '下载 · Taurus Stack',
-        description: '下载 Taurus Stack 各子项目安装包、Docker 镜像、部署脚本与二进制客户端。',
+        title: '下载 · Taurus',
+        description: '下载 Taurus 各子项目安装包、Docker 镜像、部署脚本与二进制客户端。',
       } as RouteMeta,
     },
     {
@@ -70,8 +70,8 @@ const router = createRouter({
       name: 'about',
       component: AboutView,
       meta: {
-        title: '关于我们 · Taurus Stack',
-        description: 'Taurus Stack 开源项目简介、AGPLv3 协议、贡献指南、团队与联系方式。',
+        title: '关于我们 · Taurus',
+        description: 'Taurus 开源项目简介、AGPLv3 协议、贡献指南、团队与联系方式。',
       } as RouteMeta,
     },
     {
@@ -83,8 +83,8 @@ const router = createRouter({
       name: 'not-found',
       component: NotFoundView,
       meta: {
-        title: '页面未找到 · Taurus Stack',
-        description: '您访问的页面不存在，请返回 Taurus Stack 官网。',
+        title: '页面未找到 · Taurus',
+        description: '您访问的页面不存在，请返回 Taurus 官网。',
       } as RouteMeta,
     },
   ],

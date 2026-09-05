@@ -35,6 +35,10 @@ const homeSection = {
   contactHeroDesc: homeSections.contactHeroDesc,
   scheduleFormTitle: homeSections.scheduleFormTitle,
   scheduleFormDesc: homeSections.scheduleFormDesc,
+  screenshotsLabel: homeSections.screenshotsLabel,
+  screenshotsTitle: homeSections.screenshotsTitle,
+  screenshotsDesc: homeSections.screenshotsDesc,
+  screenshotsCta: homeSections.screenshotsCta,
 }
 
 export default {

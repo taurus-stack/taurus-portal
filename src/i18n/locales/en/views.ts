@@ -6,7 +6,7 @@ export default {
     label: 'Product Features',
     title: 'Six Core Modules Building a Truly Enterprise-Grade Ops Stack',
     subtitle:
-      'Taurus Stack uses a microservice architecture where each of the six modules plays its own role. From the web console to backend services, from command executors to process supervisors, from authentication to scheduling — they collaborate via standardized protocols and cover every critical scenario of enterprise operations.',
+      'Taurus uses a microservice architecture where each of the six modules plays its own role. From the web console to backend services, from command executors to process supervisors, from authentication to scheduling — they collaborate via standardized protocols and cover every critical scenario of enterprise operations.',
     ctaTitle: 'Want to Learn More About Integrating Any Module?',
     ctaDesc:
       'Book a product demo and our experts will walk you through the most suitable deployment and integration plan tailored to your environment.',
@@ -362,8 +362,8 @@ export default {
       },
     },
     faq1: {
-      q: 'What is the essential difference between Taurus Stack and Ansible / SaltStack?',
-      a: 'Ansible/Salt focuses on "execution" itself, while Taurus Stack is an integrated ops platform. Beyond remote execution, it also provides built-in host lifecycle + certificate management, a general process supervisor (systemd-like but with hosting-level capabilities + zero-downtime upgrade), visual workflows, script library version management, program batch deployment distribution, multiple layers of security (mTLS + Macaroon + signatures), and a complete audit and permission system. It is more like an all-in-one replacement for "Ansible + Supervisor + Rundeck + Foreman".',
+      q: 'What is the essential difference between Taurus and Ansible / SaltStack?',
+      a: 'Ansible/Salt focuses on "execution" itself, while Taurus is an integrated ops platform. Beyond remote execution, it also provides built-in host lifecycle + certificate management, a general process supervisor (systemd-like but with hosting-level capabilities + zero-downtime upgrade), visual workflows, script library version management, program batch deployment distribution, multiple layers of security (mTLS + Macaroon + signatures), and a complete audit and permission system. It is more like an all-in-one replacement for "Ansible + Supervisor + Rundeck + Foreman".',
     },
     faq2: {
       q: 'How does Supervisor achieve interrupt < 1s for zero-downtime upgrades?',
@@ -383,18 +383,17 @@ export default {
     },
     faq6: {
       q: 'Can I use only some modules? For example, just Supervisor to protect business processes?',
-      a: 'Absolutely. All six Taurus Stack modules can be deployed independently and enabled as needed: ① Only enable Supervisor → as a general process supervisor + zero-downtime upgrade tool; ② Only enable Executor + Backend → as a remote command execution platform; ③ Only enable Scheduler + Backend → as a distributed scheduled task scheduler. Non-dependent module registration and health checks can be turned off via environment variable switches. Modules are decoupled via standard protocols and are not forced to be bundled.',
+      a: 'Absolutely. All six Taurus modules can be deployed independently and enabled as needed: ① Only enable Supervisor → as a general process supervisor + zero-downtime upgrade tool; ② Only enable Executor + Backend → as a remote command execution platform; ③ Only enable Scheduler + Backend → as a distributed scheduled task scheduler. Non-dependent module registration and health checks can be turned off via environment variable switches. Modules are decoupled via standard protocols and are not forced to be bundled.',
     },
   },
 
   download: {
     label: 'Download',
-    title: 'Get Taurus Stack · From Source Code to Binary',
+    title: 'Get Taurus · From Source Code to Binary',
     introTip:
       'All source repositories use the AGPLv3 license. For production environments, we recommend completing mTLS certificate initialization via the certs/ directory before starting.',
-    repoLink: 'https://github.com/taurus-ops/taurus-stack',
+    repoLink: 'https://github.com/taurus-stack/taurus',
     repoButton: 'GitHub Source Repository',
-    docsButton: 'Read Deployment Guide First',
     composeLabel: 'Docker Compose All-in-One',
     composeTitle: 'Quick One-Click Start',
     composeDesc:
@@ -513,8 +512,7 @@ export default {
   about: {
     label: 'About Us',
     title: 'Open Source Project Built for Enterprise-Grade Ops',
-    heroTagline:
-      'Taurus Stack is a community-driven open-source distributed integrated ops platform.',
+    heroTagline: 'Taurus is a community-driven open-source distributed integrated ops platform.',
     valuesLabel: 'Core Values',
     valuesTitle: '4 Things We Believe In',
     roadmapLabel: 'Project Timeline',
@@ -559,7 +557,7 @@ export default {
       v4: {
         num: '04',
         title: 'Community Building',
-        desc: 'Taurus Stack is built for the community. Any enterprise, individual, or team is free to use, contribute, and redistribute.',
+        desc: 'Taurus is built for the community. Any enterprise, individual, or team is free to use, contribute, and redistribute.',
         c1: '#fbbf24',
         c2: '#f59e0b',
       },

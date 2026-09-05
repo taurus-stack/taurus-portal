@@ -7,12 +7,12 @@ export default {
   featuresLabel: '核心功能',
   featuresTitle: '十大核心能力，覆蓋維運全場景',
   featuresDesc:
-    '從主機納管到程式部署，從自動化維運到安全鑑權，Taurus Stack 提供企業級一體化維運解決方案。',
+    '從主機納管到程式部署，從自動化維運到安全鑑權，Taurus 提供企業級一體化維運解決方案。',
   archLabel: '技術架構',
   archTitle: '微服務架構，模組化設計',
   archDesc: '六大核心模組各司其職，透過標準化協定協同運作，建構真正的分散式一體化維運平台。',
   archAdvantagesTitle: '六大產品優勢',
-  archAdvantagesDesc: 'Taurus Stack 從架構設計到安全防護，每一個細節都以企業級生產規格打磨。',
+  archAdvantagesDesc: 'Taurus 從架構設計到安全防護，每一個細節都以企業級生產規格打磨。',
   archSecurityLabel: '安全架構',
   securityTitle: '多層次安全防護，企業級可信保障',
   securityDesc: '從網路層到應用層建構縱深防禦體系，滿足金融、政府等強監管產業的安全要求。',
@@ -21,7 +21,7 @@ export default {
   solutionsDesc: '為不同產業客戶量身打造維運解決方案，讓技術真正服務於營運目標。',
   testimonialsLabel: '客戶案例',
   testimonialsTitle: '典型使用場景回饋',
-  testimonialsDesc: '眾多企業選擇 Taurus Stack 建構其維運體系，實現維運標準化、自動化與安全化。',
+  testimonialsDesc: '眾多企業選擇 Taurus 建構其維運體系，實現維運標準化、自動化與安全化。',
   clientsLabel: '服務各產業客戶',
   contactLabel: '聯絡我們',
   contactHeroTitle: '開啟您的智慧維運旅程',
@@ -32,7 +32,7 @@ export default {
 
   // ===== P2 深層結構 =====
   overviewParagraph1:
-    'Taurus Stack 是一款企業級分散式一體化維運管理平台，採用微服務架構，覆蓋主機管理、自動化維運、程式部署、監控告警與安全鑑權等完整場景，協助企業落實維運作業的標準化、自動化與安全化。',
+    'Taurus 是一款企業級分散式一體化維運管理平台，採用微服務架構，覆蓋主機管理、自動化維運、程式部署、監控告警與安全鑑權等完整場景，協助企業落實維運作業的標準化、自動化與安全化。',
   overviewParagraph2:
     '六大核心模組協同運作，從前端主控台到後端服務、從執行器到常駐守護程序、從鑑權到排程，組成完備的企業級維運技術堆疊。',
   painPoints: {
@@ -199,6 +199,47 @@ export default {
         '日誌留存與法規匯出',
       ],
     },
+  },
+
+  // ============= 產品介面速覽 =============
+  screenshotsLabel: '產品介面速覽',
+  screenshotsTitle: '真實產品介面，所見即所得',
+  screenshotsDesc:
+    '精選 Taurus Web 管理控制台核心介面截圖，涵蓋主機管理、遠端執行、工作流編排等核心運維場景。',
+  screenshotsCta: '查看完整產品介面',
+  screenshots: {
+    items: [
+      {
+        file: 'home.png',
+        title: '運維總覽',
+        desc: '主機線上狀態、任務執行概覽與告警資訊一屏掌控',
+      },
+      {
+        file: 'run-command.png',
+        title: '遠端命令執行',
+        desc: '基於 gRPC 的高效能遠端命令執行，即時串流輸出',
+      },
+      {
+        file: 'script-library.png',
+        title: '腳本庫管理',
+        desc: '腳本版本管理、分類標籤與參數化模板',
+      },
+      {
+        file: 'job-management.png',
+        title: '工作流編排',
+        desc: '可視化工作流編排，多步驟任務統一排程',
+      },
+      {
+        file: 'execution-records.png',
+        title: '執行記錄',
+        desc: '全量執行歷史檢索，支援按主機、腳本、時間篩選',
+      },
+      {
+        file: 'my-host.png',
+        title: '主機管理',
+        desc: '主機資產納管、分組標籤與線上狀態統一管理',
+      },
+    ],
   },
 
   // ============= 技術架構 =============
@@ -456,7 +497,7 @@ export default {
   testimonials: {
     t1: {
       quote:
-        '以前我們用 Ansible 加一堆自製腳本做維運，腳本散落各地沒人敢改。導入 Taurus Stack 之後，所有維運作業都走工作流程，新人也能快速上手；最驚豔的是 Supervisor 零停機升級，Agent 升級再也不用排凌晨窗口了。',
+        '以前我們用 Ansible 加一堆自製腳本做維運，腳本散落各地沒人敢改。導入 Taurus 之後，所有維運作業都走工作流程，新人也能快速上手；最驚豔的是 Supervisor 零停機升級，Agent 升級再也不用排凌晨窗口了。',
       name: '陳工程師',
       title: '維運負責人',
       company: '某城商銀 · 科技部（典型場景）',
@@ -464,7 +505,7 @@ export default {
     },
     t2: {
       quote:
-        '我們有 200 多台產線伺服器，以前推一個新版本得派人全台各廠現場跑一圈。用了 Taurus Stack 程式部署與原則發佈，新版本一鍵推到全部產線，升級中斷不到 1 秒，產線完全不受影響。',
+        '我們有 200 多台產線伺服器，以前推一個新版本得派人全台各廠現場跑一圈。用了 Taurus 程式部署與原則發佈，新版本一鍵推到全部產線，升級中斷不到 1 秒，產線完全不受影響。',
       name: '李工程師',
       title: 'IT 經理',
       company: '某大型製造集團（典型場景）',
@@ -472,7 +513,7 @@ export default {
     },
     t3: {
       quote:
-        '安全是我們最看重的。Taurus Stack 的 mTLS 雙向鑑權、一次性票據、IP 白名單這套組合拳，徹底解決我們對維運通道安全的顧慮；審計日誌也非常完整，等保測評一次就過關。',
+        '安全是我們最看重的。Taurus 的 mTLS 雙向鑑權、一次性票據、IP 白名單這套組合拳，徹底解決我們對維運通道安全的顧慮；審計日誌也非常完整，等保測評一次就過關。',
       name: '王總監',
       title: '資安總監',
       company: '某證券公司（典型場景）',

@@ -31,7 +31,7 @@ export default {
   methodEmailTitle: '邮件联系',
   methodEmailDesc: 'TODO: 待补充企业邮箱 · 1个工作日内回复',
   methodImTitle: '在线客服',
-  methodImDesc: 'TODO: 企业微信 / 钉钉 · 工作日即时响应',
+  methodImDesc: 'TODO: 企业微信 / 钉钉 · 工作日实时响应',
   methodAddrTitle: '公司地址',
   methodAddrDesc: 'TODO: 待补充实际办公地址',
 }

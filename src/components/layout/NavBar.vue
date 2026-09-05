@@ -5,6 +5,7 @@ import { useRouter, useRoute, RouterLink } from 'vue-router'
 import { useLocaleStore } from '@/stores/locale'
 import { useThemeStore, type ThemePref } from '@/stores/theme'
 import type { Locale } from '@/types'
+import logoUrl from '@/assets/logo.svg'
 
 const { t, locale } = useI18n()
 const router = useRouter()
@@ -107,9 +108,7 @@ onUnmounted(() => {
     <nav :class="['navbar', { scrolled }]">
       <div class="container nav-inner">
         <RouterLink to="/" class="logo">
-          <span class="logo-icon">
-            <span class="dot"></span>
-          </span>
+          <img :src="logoUrl" alt="Taurus" class="logo-img" />
           <span>{{ t('common.brand') }}</span>
         </RouterLink>
         <ul class="nav-menu">

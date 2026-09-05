@@ -1,7 +1,7 @@
 // 正體中文 · Hero 區塊（P3 完整翻譯）
 export default {
   badge: '分散式一體化營運管理平台',
-  title1: 'Taurus Stack',
+  title1: 'Taurus',
   titleHighlight: '企業級分散式維運平台',
   subtitle:
     '以微服務架構打造的一體化營運管理平台，覆蓋主機管理、自動化維運、程式部署、監控告警與安全鑑權全場景，協助企業實現營運作業的標準化、自動化與安全化。',

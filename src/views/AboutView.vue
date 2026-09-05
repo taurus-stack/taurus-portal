@@ -413,6 +413,15 @@ const contactCards = computed(() =>
     font-size: 14px;
     line-height: 1.6;
   }
+  .btn-ghost {
+    color: rgba(255, 255, 255, 0.85);
+    border-color: rgba(255, 255, 255, 0.3);
+  }
+  .btn-ghost:hover {
+    color: var(--teal-300);
+    border-color: var(--teal-400);
+    background: rgba(20, 184, 166, 0.12);
+  }
 }
 
 .av-contrib {

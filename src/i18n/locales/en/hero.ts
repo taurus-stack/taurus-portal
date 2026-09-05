@@ -1,7 +1,7 @@
 // English locale · hero (fully translated P3)
 export default {
   badge: 'Unified distributed operations platform',
-  title1: 'Taurus Stack',
+  title1: 'Taurus',
   titleHighlight: 'Enterprise-grade distributed operations',
   subtitle:
     'A microservice-first unified operations management platform covering host inventory, automation, application deployments, monitoring & alerting, and secure authentication. Helps your operations team deliver on the three pillars — standardization, automation and security.',

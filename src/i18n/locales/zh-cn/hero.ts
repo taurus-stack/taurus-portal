@@ -1,9 +1,9 @@
 export default {
-  badge: '分布式一体化运维管理平台',
-  title1: 'Taurus Stack',
-  titleHighlight: '企业级分布式运维平台',
+  badge: '企业级运维一体化平台',
+  title1: 'Taurus',
+  titleHighlight: '让运维更简单、更安全、不中断',
   subtitle:
-    '微服务架构的一体化运维管理平台，覆盖主机管理、自动化运维、程序部署、监控告警、安全认证全场景。帮助企业实现运维工作的标准化、自动化与安全化。',
+    'Taurus 把主机管理、批量执行、程序部署、监控告警、权限审计整合到一个平台。不用再东拼西凑一堆工具，升级不影响业务，操作全程可追溯，帮企业把运维做得更省心、更安全。',
   scheduleDemo: '立即预约演示',
   viewFeatures: '了解功能详情',
   stat6: '6',
@@ -14,7 +14,7 @@ export default {
   statZeroLabel: '零停机升级',
   stat100: '100',
   stat100Unit: '%',
-  stat100Label: 'mTLS 加密',
+  stat100Label: '通信加密',
   visualClusterTitle: '主机集群概览',
   visualClusterMeta: 'cluster-prod',
   metricHostOnline: '在线主机',

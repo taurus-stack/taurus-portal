@@ -1,7 +1,7 @@
 // 正體中文 · 通用模組（P3 完整翻譯）
 export default {
-  brand: 'Taurus Stack',
-  brandFull: '雲樞 Taurus Stack',
+  brand: 'Taurus',
+  brandFull: '雲樞 Taurus',
   yes: '是',
   no: '否',
   ok: '確定',
@@ -12,8 +12,8 @@ export default {
   backHome: '返回首頁',
   notFoundTitle: '找不到頁面',
   notFoundDesc: '您要造訪的頁面不存在或已搬移，請檢查網址或返回首頁。',
-  copyright: '© 2026 Taurus Stack. 保留所有權利。',
-  copyrightWithLicense: '© 2026 Taurus Stack. 保留所有權利。 · 以 AGPLv3 開源釋出',
+  copyright: '© 2026 Taurus. 保留所有權利。',
+  copyrightWithLicense: '© 2026 Taurus. 保留所有權利。 · 以 AGPLv3 開源釋出',
   icpPlaceholder: 'ICP 備案（佔位）',
   privacy: '隱私權政策',
   terms: '服務條款',

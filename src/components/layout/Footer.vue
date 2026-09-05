@@ -3,6 +3,7 @@ import { computed } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { RouterLink } from 'vue-router'
 import type { FooterLink, Social } from '@/types'
+import logoUrl from '@/assets/logo.svg'
 
 const { t } = useI18n()
 
@@ -26,7 +27,7 @@ const resourceLinks = computed<FooterLink[]>(() => [
   { label: t('footer.resDownload'), href: '/download' },
   { label: t('footer.resAbout'), href: '/about' },
   { label: t('footer.resContact'), href: '/#contact' },
-  { label: t('footer.resRepo'), href: 'https://github.com/taurus-ops/taurus-stack' },
+  { label: t('footer.resRepo'), href: 'https://github.com/taurus-stack/taurus' },
 ])
 
 const socials: Social[] = [
@@ -43,9 +44,7 @@ const socials: Social[] = [
       <div class="footer-top">
         <div class="footer-brand">
           <RouterLink to="/" class="logo">
-            <span class="logo-icon">
-              <span class="dot"></span>
-            </span>
+            <img :src="logoUrl" alt="Taurus" class="logo-img" />
             <span style="color: white">{{ t('common.brand') }}</span>
           </RouterLink>
           <p>{{ t('footer.slogan') }}</p>
@@ -53,7 +52,7 @@ const socials: Social[] = [
             <a
               v-for="(s, i) in socials"
               :key="i"
-              href="https://github.com/taurus-ops/taurus-stack"
+              href="https://github.com/taurus-stack/taurus"
               class="social-link"
               :title="t('footer.socialGithub')"
               target="_blank"

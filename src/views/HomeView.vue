@@ -5,6 +5,7 @@ import { useRoute } from 'vue-router'
 import Hero from '@/components/sections/Hero.vue'
 import Overview from '@/components/sections/Overview.vue'
 import Features from '@/components/sections/Features.vue'
+import ScreenshotsPreview from '@/components/sections/ScreenshotsPreview.vue'
 import Architecture from '@/components/sections/Architecture.vue'
 import Solutions from '@/components/sections/Solutions.vue'
 import Testimonials from '@/components/sections/Testimonials.vue'
@@ -23,13 +24,13 @@ const canonical = siteUrl ? `${siteUrl}/` : '/'
 const orgLd = {
   '@context': 'https://schema.org',
   '@type': 'Organization',
-  name: 'Taurus Stack',
+  name: 'Taurus',
   alternateName: 'Taurus Ops',
   url: siteUrl || 'https://taurus-ops.io',
   logo: siteUrl ? `${siteUrl}/favicon.svg` : '/favicon.svg',
   description:
-    'Taurus Stack 企业级分布式运维平台（官网门户）。统一 Shell 脚本、文件下发、gRPC 主机执行器、Supervisor 守护进程、工作流编排、调度器、票据鉴权 7 大模块，覆盖中大型企业批量运维。',
-  sameAs: ['https://github.com/taurus-ops/taurus-stack'],
+    'Taurus 企业级分布式运维平台（官网门户）。统一 Shell 脚本、文件下发、gRPC 主机执行器、Supervisor 守护进程、工作流编排、调度器、票据鉴权 7 大模块，覆盖中大型企业批量运维。',
+  sameAs: ['https://github.com/taurus-stack/taurus'],
 }
 
 useHead(() => ({
@@ -40,7 +41,7 @@ useHead(() => ({
     { property: 'og:description', content: route.meta.description as string | undefined },
     { property: 'og:type', content: 'website' },
     { property: 'og:url', content: canonical },
-    { property: 'og:site_name', content: 'Taurus Stack Portal' },
+    { property: 'og:site_name', content: 'Taurus Portal' },
     { name: 'twitter:card', content: 'summary_large_image' },
     { name: 'robots', content: 'index, follow, max-snippet:-1, max-image-preview:large' },
   ],
@@ -60,6 +61,7 @@ useHead(() => ({
     <Hero />
     <Overview />
     <Features />
+    <ScreenshotsPreview />
     <Architecture />
     <Solutions />
     <Testimonials />

@@ -7,14 +7,14 @@ export default {
   featuresLabel: 'Core features',
   featuresTitle: 'Ten core capabilities covering the full operations lifecycle',
   featuresDesc:
-    'From host onboarding to application deployments, from automation to secure access control, Taurus Stack ships an enterprise-grade unified operations solution.',
+    'From host onboarding to application deployments, from automation to secure access control, Taurus ships an enterprise-grade unified operations solution.',
   archLabel: 'Architecture',
   archTitle: 'Microservice architecture, modular by design',
   archDesc:
     'Six core modules, each responsible for its own domain, collaborating over standardised protocols to build a true distributed, unified operations platform.',
   archAdvantagesTitle: 'Six product advantages',
   archAdvantagesDesc:
-    'From architecture choices to defensive security, every detail in Taurus Stack is shaped against enterprise-grade production standards.',
+    'From architecture choices to defensive security, every detail in Taurus is shaped against enterprise-grade production standards.',
   archSecurityLabel: 'Security architecture',
   securityTitle: 'Defence-in-depth security, enterprise-grade trust',
   securityDesc:
@@ -26,7 +26,7 @@ export default {
   testimonialsLabel: 'Customer stories',
   testimonialsTitle: 'Feedback from real use cases',
   testimonialsDesc:
-    'Teams of all sizes build their operations stack on Taurus Stack — raising standardization, automation and security together.',
+    'Teams of all sizes build their operations stack on Taurus — raising standardization, automation and security together.',
   clientsLabel: 'Trusted by teams across industries',
   contactLabel: 'Contact us',
   contactHeroTitle: 'Start your intelligent operations journey',
@@ -38,7 +38,7 @@ export default {
 
   // ===== P2 deep structure =====
   overviewParagraph1:
-    'Taurus Stack is an enterprise-grade, distributed, unified operations management platform built on a microservice architecture. It covers the full landscape: host inventory, automation, application deployments, monitoring & alerting, and secure authentication. It helps organizations raise the standardization, automation and security posture of their operations work.',
+    'Taurus is an enterprise-grade, distributed, unified operations management platform built on a microservice architecture. It covers the full landscape: host inventory, automation, application deployments, monitoring & alerting, and secure authentication. It helps organizations raise the standardization, automation and security posture of their operations work.',
   overviewParagraph2:
     'Six core modules work together — from the front-end console to the backend services, from remote executors to host daemons, from authentication to scheduling — assembling a complete enterprise-grade operations technology stack.',
   painPoints: {
@@ -205,6 +205,47 @@ export default {
         'Log retention and compliance export',
       ],
     },
+  },
+
+  // ============= Screenshots Preview =============
+  screenshotsLabel: 'Product UI Preview',
+  screenshotsTitle: 'Real Product Interface — What You See Is What You Get',
+  screenshotsDesc:
+    'A curated selection of core Taurus Web console screenshots, covering host management, remote execution, workflow orchestration, and more.',
+  screenshotsCta: 'View Full Product UI',
+  screenshots: {
+    items: [
+      {
+        file: 'home.png',
+        title: 'Ops Overview',
+        desc: 'Host online status, task execution summary, and alerts on a single screen',
+      },
+      {
+        file: 'run-command.png',
+        title: 'Remote Command',
+        desc: 'High-performance gRPC-based remote command execution with real-time streaming output',
+      },
+      {
+        file: 'script-library.png',
+        title: 'Script Library',
+        desc: 'Script versioning, category tags, and parameterized templates',
+      },
+      {
+        file: 'job-management.png',
+        title: 'Workflow Orchestration',
+        desc: 'Visual workflow orchestration with unified multi-step task scheduling',
+      },
+      {
+        file: 'execution-records.png',
+        title: 'Execution Records',
+        desc: 'Full execution history search with filters by host, script, and time',
+      },
+      {
+        file: 'my-host.png',
+        title: 'Host Management',
+        desc: 'Host asset onboarding, grouping & tags, and unified online status management',
+      },
+    ],
   },
 
   // ============= Architecture =============
@@ -470,7 +511,7 @@ export default {
   testimonials: {
     t1: {
       quote:
-        "We used to run ops with Ansible plus in-house scripts scattered everywhere — nobody dared touch them. With Taurus Stack every operation is a standardized workflow; new team members get productive fast. And Supervisor's zero-downtime upgrades? We no longer need to schedule 3am windows for agent updates.",
+        "We used to run ops with Ansible plus in-house scripts scattered everywhere — nobody dared touch them. With Taurus every operation is a standardized workflow; new team members get productive fast. And Supervisor's zero-downtime upgrades? We no longer need to schedule 3am windows for agent updates.",
       name: 'Mr. Chen',
       title: 'Head of Operations',
       company: 'City commercial bank · Tech Dept (typical use case)',
@@ -478,7 +519,7 @@ export default {
     },
     t2: {
       quote:
-        'We have 200+ production-line servers scattered across multiple sites. Before we literally had to drive to every factory to roll out a new release. With Taurus Stack program deployment and policy distribution the same release now lands on every line with a single click — upgrade interruption is under a second, and production keeps ticking.',
+        'We have 200+ production-line servers scattered across multiple sites. Before we literally had to drive to every factory to roll out a new release. With Taurus program deployment and policy distribution the same release now lands on every line with a single click — upgrade interruption is under a second, and production keeps ticking.',
       name: 'Mr. Li',
       title: 'IT Manager',
       company: 'Large manufacturing group (typical use case)',
@@ -486,7 +527,7 @@ export default {
     },
     t3: {
       quote:
-        'Security is what matters most to us. The combination of mTLS mutual auth, one-time discharge tickets and IP allow-lists in Taurus Stack removed our long-held concern over operations-channel safety. Audit trails are also thorough — we passed the classified-protection review in one go.',
+        'Security is what matters most to us. The combination of mTLS mutual auth, one-time discharge tickets and IP allow-lists in Taurus removed our long-held concern over operations-channel safety. Audit trails are also thorough — we passed the classified-protection review in one go.',
       name: 'Director Wang',
       title: 'CISO',
       company: 'Securities firm (typical use case)',

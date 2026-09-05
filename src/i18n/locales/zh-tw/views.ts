@@ -6,7 +6,7 @@ export default {
     label: '產品功能',
     title: '六大核心模組，建構真正的企業級運維技術堆疊',
     subtitle:
-      'Taurus Stack 採用微服務架構，六大模組各司其職。從前端控制台到後端服務、從命令執行器到進程守護、從認證到調度，透過標準化協同工作，覆蓋企業運維所有關鍵場景。',
+      'Taurus 採用微服務架構，六大模組各司其職。從前端控制台到後端服務、從命令執行器到進程守護、從認證到調度，透過標準化協同工作，覆蓋企業運維所有關鍵場景。',
     ctaTitle: '想深入了解任意模組的整合方式？',
     ctaDesc: '預約產品示範，我們的專家將結合您的實際環境，講解最合適的部署與整合方案。',
     ctaButton: '預約產品示範',
@@ -320,8 +320,8 @@ export default {
       },
     },
     faq1: {
-      q: 'Taurus Stack 與 Ansible / SaltStack 有什麼本質差異？',
-      a: 'Ansible/Salt 專注「執行」本身，而 Taurus Stack 是一體化運維平台。除遠端執行外，還內建主機生命週期 + 憑證管理、通用進程守護（類 systemd 但託管級能力 + 零停機升級）、工作流視覺化、腳本庫版本管理、程式批次部署分發、多層安全（mTLS+Macaroon+簽章）、完整稽核與權限體系。更像「Ansible + Supervisor + Rundeck + Foreman」的一體化替代。',
+      q: 'Taurus 與 Ansible / SaltStack 有什麼本質差異？',
+      a: 'Ansible/Salt 專注「執行」本身，而 Taurus 是一體化運維平台。除遠端執行外，還內建主機生命週期 + 憑證管理、通用進程守護（類 systemd 但託管級能力 + 零停機升級）、工作流視覺化、腳本庫版本管理、程式批次部署分發、多層安全（mTLS+Macaroon+簽章）、完整稽核與權限體系。更像「Ansible + Supervisor + Rundeck + Foreman」的一體化替代。',
     },
     faq2: {
       q: 'Supervisor 零停機升級是如何做到中斷 < 1 秒的？',
@@ -341,18 +341,17 @@ export default {
     },
     faq6: {
       q: '可以只使用部分模組嗎？例如只要 Supervisor 守護業務進程？',
-      a: '完全可以。Taurus Stack 六大模組均可獨立部署並按需啟用：①只啟用 Supervisor → 作為通用進程守護 + 零停機升級工具；②只啟用 Executor + Backend → 作為遠端命令執行平台；③只啟用 Scheduler + Backend → 作為分散式定時任務調度器。通過環境變數開關即可關閉非依賴模組的註冊與健康檢查。模組間通過標準協議解耦，不強行綁定。',
+      a: '完全可以。Taurus 六大模組均可獨立部署並按需啟用：①只啟用 Supervisor → 作為通用進程守護 + 零停機升級工具；②只啟用 Executor + Backend → 作為遠端命令執行平台；③只啟用 Scheduler + Backend → 作為分散式定時任務調度器。通過環境變數開關即可關閉非依賴模組的註冊與健康檢查。模組間通過標準協議解耦，不強行綁定。',
     },
   },
 
   download: {
     label: '下載中心',
-    title: '取得 Taurus Stack · 從原始碼到二進位',
+    title: '取得 Taurus · 從原始碼到二進位',
     introTip:
       '所有原始碼倉庫均使用 AGPLv3 協議。生產環境推薦配合 certs/ 目錄完成 mTLS 憑證初始化後再啟動。',
-    repoLink: 'https://github.com/taurus-ops/taurus-stack',
+    repoLink: 'https://github.com/taurus-stack/taurus',
     repoButton: 'GitHub 原始碼倉庫',
-    docsButton: '先讀部署指南',
     composeLabel: 'Docker Compose All-in-One',
     composeTitle: '快速一鍵啟動',
     composeDesc: '僅供 PoC / Demo 場景，生產請依文件做分層高可用部署。',
@@ -465,7 +464,7 @@ export default {
   about: {
     label: '關於我們',
     title: '為企業級運維而生的開源專案',
-    heroTagline: 'Taurus Stack（雲樞）是一個由社區驅動的開源分散式一體化運維平台。',
+    heroTagline: 'Taurus（雲樞）是一個由社區驅動的開源分散式一體化運維平台。',
     valuesLabel: '核心價值觀',
     valuesTitle: '我們堅信的 4 件事',
     roadmapLabel: '專案歷程',
@@ -508,7 +507,7 @@ export default {
       v4: {
         num: '04',
         title: '社區共建',
-        desc: 'Taurus Stack 為社區而生。任何企業、個人、團隊都可以自由使用、貢獻與二次分發。',
+        desc: 'Taurus 為社區而生。任何企業、個人、團隊都可以自由使用、貢獻與二次分發。',
         c1: '#fbbf24',
         c2: '#f59e0b',
       },
