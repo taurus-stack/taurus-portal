@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+# Never index the 404 view direct access (it will 404-respond anyway but keep crawlers polite)
+Disallow: /_legacy/
+Disallow: /*#contact
+Sitemap: /sitemap.xml

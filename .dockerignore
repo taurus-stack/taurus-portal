@@ -1,0 +1,44 @@
+# ===== Build artifacts =====
+dist/
+dist-ssr/
+
+# ===== Dependencies =====
+node_modules/
+.pnpm-store/
+package-lock.json
+yarn.lock
+
+# ===== Dev / local artifacts =====
+*.log
+tmp/
+temp/
+.env
+.env.local
+.env.*.local
+.vite/
+.vscode/
+.idea/
+coverage/
+*.tsbuildinfo
+
+# ===== Archived prototype (not shipped) =====
+_archive/
+.spark/
+
+# ===== OS / editor =====
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+
+# ===== Git =====
+.git
+.gitignore
+.dockerignore
+README.md
+CHANGELOG.md
+
+# ===== Docker =====
+Dockerfile*
+.dockerignore
+.docker

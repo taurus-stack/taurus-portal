@@ -1,0 +1,30 @@
+// English locale · common (fully translated P3)
+export default {
+  brand: 'Taurus Stack',
+  brandFull: 'CloudPivot Taurus Stack',
+  yes: 'Yes',
+  no: 'No',
+  ok: 'OK',
+  cancel: 'Cancel',
+  submit: 'Submit',
+  submitting: 'Submitting...',
+  reset: 'Reset',
+  backHome: 'Back to home',
+  notFoundTitle: 'Page not found',
+  notFoundDesc:
+    'The page you are looking for does not exist or has been moved. Please double-check the link or go back to the home page.',
+  copyright: '© 2026 Taurus Stack. All rights reserved.',
+  copyrightWithLicense: '© 2026 Taurus Stack. All rights reserved. · Open source under AGPLv3',
+  icpPlaceholder: 'ICP filing (placeholder)',
+  privacy: 'Privacy Policy',
+  terms: 'Terms of Service',
+  learnMore: 'Learn more →',
+  contactCTA: 'Book a demo →',
+  contactExpert: 'Talk to a solutions expert →',
+  theme: {
+    label: 'Theme',
+    light: 'Light',
+    dark: 'Dark',
+    system: 'System',
+  },
+}

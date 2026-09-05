@@ -1,0 +1,22 @@
+export default {
+  slogan:
+    'Taurus Stack（云枢）— 企业级分布式一体化运维管理平台。覆盖主机管理、自动化运维、程序部署、监控告警、安全认证全场景，助力企业实现运维标准化、自动化与安全化。',
+  titleProduct: '产品模块',
+  titleSolutions: '解决方案',
+  titleResources: '资源',
+  productWeb: 'Taurus Web 控制台',
+  productBackend: 'Taurus Backend API',
+  productExecutor: 'Taurus Executor',
+  productSupervisor: 'Taurus Supervisor',
+  productAuthScheduler: 'Taurus Auth / Scheduler',
+  solFinance: '金融行业方案',
+  solInternet: '互联网企业',
+  solGov: '政务 / 央企',
+  solManufacturing: '制造业',
+  resDocs: '文档中心',
+  resDownload: '下载与安装',
+  resAbout: '关于项目 / AGPLv3',
+  resContact: '联系 / 预约演示',
+  resRepo: '开源仓库',
+  socialGithub: 'GitHub',
+}

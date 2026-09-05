@@ -1,0 +1,9 @@
+dist/
+node_modules/
+.pnpm-store/
+_archive/
+.git/
+.DS_Store
+pnpm-lock.yaml
+*.lock
+package-lock.json
