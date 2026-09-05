@@ -64,9 +64,9 @@ const clients = computed<string[]>(
           class="section-label"
           style="text-align: center; justify-content: center; display: flex"
         >
-          {{ t('hero.clusterLabel') }}
+          {{ t('homeSection.clientsLabel') }}
         </div>
-        <div class="clients-grid">
+        <div class="client-logos">
           <div v-for="(c, i) in clients" :key="i" class="client-logo">{{ c }}</div>
         </div>
       </div>

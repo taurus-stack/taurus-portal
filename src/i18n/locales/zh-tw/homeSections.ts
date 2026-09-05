@@ -22,6 +22,7 @@ export default {
   testimonialsLabel: '客戶案例',
   testimonialsTitle: '典型使用場景回饋',
   testimonialsDesc: '眾多企業選擇 Taurus Stack 建構其維運體系，實現維運標準化、自動化與安全化。',
+  clientsLabel: '服務各產業客戶',
   contactLabel: '聯絡我們',
   contactHeroTitle: '開啟您的智慧維運旅程',
   contactHeroDesc:

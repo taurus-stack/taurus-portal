@@ -22,6 +22,7 @@ export default {
   testimonialsLabel: '客户案例',
   testimonialsTitle: '典型用户场景反馈',
   testimonialsDesc: '众多企业选择 Taurus Stack 构建其运维体系，实现运维标准化、自动化与安全化',
+  clientsLabel: '服务于各行业客户',
   contactLabel: '联系我们',
   contactHeroTitle: '开启您的智能运维之旅',
   contactHeroDesc:

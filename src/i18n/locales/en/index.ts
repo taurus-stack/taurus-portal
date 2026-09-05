@@ -29,6 +29,7 @@ const homeSection = {
   testimonialsLabel: homeSections.testimonialsLabel,
   testimonialsTitle: homeSections.testimonialsTitle,
   testimonialsDesc: homeSections.testimonialsDesc,
+  clientsLabel: homeSections.clientsLabel,
   contactLabel: homeSections.contactLabel,
   contactHeroTitle: homeSections.contactHeroTitle,
   contactHeroDesc: homeSections.contactHeroDesc,

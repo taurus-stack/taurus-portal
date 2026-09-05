@@ -27,6 +27,7 @@ export default {
   testimonialsTitle: 'Feedback from real use cases',
   testimonialsDesc:
     'Teams of all sizes build their operations stack on Taurus Stack — raising standardization, automation and security together.',
+  clientsLabel: 'Trusted by teams across industries',
   contactLabel: 'Contact us',
   contactHeroTitle: 'Start your intelligent operations journey',
   contactHeroDesc:
