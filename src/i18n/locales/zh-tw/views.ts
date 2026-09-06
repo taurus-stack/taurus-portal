@@ -404,7 +404,7 @@ export default {
           },
           {
             label: '分發到主機',
-            cmd: 'scp dist/taurus-executor root\\@host:/usr/local/bin/',
+            cmd: "scp dist/taurus-executor root{'@'}host:/usr/local/bin/",
           },
         ],
       },
@@ -603,7 +603,7 @@ export default {
           'Markdown 案例 + 架構圖',
           '新建 docs/practices/xxx.md',
           '附可重現的範例配置',
-          '提交 PR 並 @社區評審員',
+          "提交 PR 並 {'@'}社區評審員",
         ],
       },
     },
@@ -617,7 +617,7 @@ export default {
       cc2: {
         icon: '✉️',
         title: '郵件聯繫',
-        desc: 'taurus-stack@outlook.com · 1 個工作日內回覆',
+        desc: "taurus-stack{'@'}outlook.com · 1 個工作日內回覆",
         badge: '商務合作',
       },
       cc3: {

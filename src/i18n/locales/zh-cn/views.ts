@@ -403,7 +403,7 @@ export default {
           },
           {
             label: '分发到主机',
-            cmd: 'scp dist/taurus-executor root\\@host:/usr/local/bin/',
+            cmd: "scp dist/taurus-executor root{'@'}host:/usr/local/bin/",
           },
         ],
       },
@@ -602,7 +602,7 @@ export default {
           'Markdown 案例 + 架构图',
           '新建 docs/practices/xxx.md',
           '附可复现的示例配置',
-          '提交 PR 并 @社区评审员',
+          "提交 PR 并 {'@'}社区评审员",
         ],
       },
     },
@@ -616,7 +616,7 @@ export default {
       cc2: {
         icon: '✉️',
         title: '邮件联系',
-        desc: 'taurus-stack@outlook.com · 1 个工作日内回复',
+        desc: "taurus-stack{'@'}outlook.com · 1 个工作日内回复",
         badge: '商务合作',
       },
       cc3: {
