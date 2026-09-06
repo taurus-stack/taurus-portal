@@ -26,7 +26,7 @@ const orgLd = {
   '@type': 'Organization',
   name: 'Taurus',
   alternateName: 'Taurus Ops',
-  url: siteUrl || 'https://taurus-ops.io',
+  url: siteUrl || 'https://taurus-stack.github.io/taurus-portal',
   logo: siteUrl ? `${siteUrl}/favicon.svg` : '/favicon.svg',
   description:
     'Taurus 企业级分布式运维平台（官网门户）。统一 Shell 脚本、文件下发、gRPC 主机执行器、Supervisor 守护进程、工作流编排、调度器、票据鉴权 7 大模块，覆盖中大型企业批量运维。',

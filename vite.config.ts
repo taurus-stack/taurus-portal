@@ -20,7 +20,7 @@ function portalSeoPlugin(siteUrlEnv: string | undefined): Plugin {
     transformIndexHtml(html) {
       const replace1 = siteUrl ? siteUrl : ''
       const canonical = siteUrl ? `${siteUrl}/` : '/'
-      const orgUrl = siteUrl || 'https://taurus-ops.io'
+      const orgUrl = siteUrl || 'https://taurus-stack.github.io/taurus-portal'
       const logoUrl = siteUrl ? `${siteUrl}/favicon.ico` : '/favicon.ico'
       return html
         .replace(/\{\{SITE_URL\}\}/g, replace1)
