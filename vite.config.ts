@@ -77,8 +77,6 @@ export default defineConfig(({ mode }) => {
     'vue-i18n': ['vue-i18n'],
     // Head manager
     '@vueuse-head': ['@vueuse/head'],
-    // HTTP client — typically ~16KB gz
-    axios: ['axios'],
   }
   // Chunk names that come out of manualChunks (framework + locale split).
   // Used by chunkFileNames to apply the deterministic <name>-[hash].js form.

@@ -9,8 +9,8 @@
  *
  * Checks performed (all byte thresholds are gzip-compressed — matches the
  * `reportCompressedSize: true` line that vite prints right after build):
- *   1. axios chunk must exist AND be > 1 KB (raw) → proves rollup didn't drop
- *      it to 0 bytes (regression: P0/P1 the contact form never wired the API).
+ *   1. index.js must reference 'formsubmit.co' → proves the contact form
+ *      submission API is wired (not tree-shaken as dead code).
  *   2. index.js gzip ≤ 55 KB — business logic stays small after splitting
  *      framework chunks.
  *   3. vue-core chunk gzip ≤ 65 KB — Vue 3.5.x expected size.
@@ -105,12 +105,14 @@ check('dist/ directory exists', () => {
   if (!fs.statSync(DIST).isDirectory()) throw new Error('missing dist/')
 })
 
-// -------------------------- 1. axios non-empty ----------------------
-check('axios chunk present and >1 KB (raw)', () => {
-  const p = findAsset(/^axios-.*\.js$/)
-  if (!p) throw new Error('no assets/axios-*.js — manualChunks may be misconfigured')
-  const { raw } = sizes(p)
-  if (raw <= 1024) throw new Error(`raw ${kb(raw)} is suspiciously small; tree-shaken?`)
+// -------------------------- 1. contact form wired -------------------
+check('contact form FormSubmit integration present in bundle', () => {
+  const p = findAsset(/^index-.*\.js$/)
+  if (!p) throw new Error('no assets/index-*.js entry chunk')
+  const src = fs.readFileSync(p, 'utf-8')
+  if (!src.includes('formsubmit.co')) {
+    throw new Error('index.js lacks formsubmit.co reference — contact form API may be tree-shaken')
+  }
 })
 
 // -------------------------- 2. index.js tight -----------------------
