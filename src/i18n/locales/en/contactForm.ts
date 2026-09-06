@@ -33,7 +33,7 @@ export default {
   methodPhoneTitle: 'Phone',
   methodPhoneDesc: '+86 13124826989 · Weekdays 9:00-18:00 (CST)',
   methodEmailTitle: 'Email',
-  methodEmailDesc: 'taurus-stack@outlook.com · Reply within 1 business day',
+  methodEmailDesc: "taurus-stack{'@'}outlook.com · Reply within 1 business day",
   methodImTitle: 'WeChat QR',
   methodImDesc: 'Scan the QR code below to add our WeChat for real-time support',
   methodAddrTitle: 'Office address',

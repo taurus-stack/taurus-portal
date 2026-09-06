@@ -448,7 +448,7 @@ export default {
           },
           {
             label: 'Distribute to Host',
-            cmd: 'scp dist/taurus-executor root\\@host:/usr/local/bin/',
+            cmd: "scp dist/taurus-executor root{'@'}host:/usr/local/bin/",
           },
         ],
       },
@@ -658,7 +658,7 @@ export default {
           'Markdown case + architecture diagram',
           'Create docs/practices/xxx.md',
           'Include reproducible example config',
-          'Submit PR and @community reviewers',
+          "Submit PR and {'@'}community reviewers",
         ],
       },
     },
@@ -672,7 +672,7 @@ export default {
       cc2: {
         icon: '✉️',
         title: 'Email Contact',
-        desc: 'taurus-stack@outlook.com · Reply within 1 business day',
+        desc: "taurus-stack{'@'}outlook.com · Reply within 1 business day",
         badge: 'Business Cooperation',
       },
       cc3: {

@@ -32,7 +32,7 @@ export default {
   methodPhoneTitle: '電話諮詢',
   methodPhoneDesc: '+86 13124826989 · 工作日 9:00-18:00',
   methodEmailTitle: '郵件聯繫',
-  methodEmailDesc: 'taurus-stack@outlook.com · 1 個工作日內回覆',
+  methodEmailDesc: "taurus-stack{'@'}outlook.com · 1 個工作日內回覆",
   methodImTitle: '微信掃碼',
   methodImDesc: '掃描下方二維碼添加企業微信，獲取即時技術支援',
   methodAddrTitle: '公司地址',

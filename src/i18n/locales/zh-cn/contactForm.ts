@@ -29,7 +29,7 @@ export default {
   methodPhoneTitle: '电话咨询',
   methodPhoneDesc: '+86 13124826989 · 工作日 9:00-18:00',
   methodEmailTitle: '邮件联系',
-  methodEmailDesc: 'taurus-stack@outlook.com · 1个工作日内回复',
+  methodEmailDesc: "taurus-stack{'@'}outlook.com · 1个工作日内回复",
   methodImTitle: '微信扫码',
   methodImDesc: '扫描下方二维码添加企业微信，获取实时技术支持',
   methodAddrTitle: '公司地址',
