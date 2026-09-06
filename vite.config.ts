@@ -86,6 +86,7 @@ export default defineConfig(({ mode }) => {
   const KNOWN_CHUNK_NAMES = new Set([...Object.keys(FRAMEWORK_CHUNKS), ...LOCALE_CHUNKS, 'index'])
 
   return {
+    base: env.VITE_BASE || '/',
     plugins: [vue(), portalSeoPlugin(env.VITE_SITE_URL)],
     resolve: {
       alias: {
