@@ -1,6 +1,6 @@
 export default {
   brand: 'Taurus',
-  brandFull: '云枢 Taurus',
+  brandFull: '天枢 Taurus',
   yes: '是',
   no: '否',
   ok: '确定',

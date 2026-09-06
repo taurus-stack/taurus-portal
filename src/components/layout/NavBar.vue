@@ -56,6 +56,11 @@ const handleLangSelect = (code: Locale) => {
   langOpen.value = false
 }
 
+const handleMobileLangSelect = (code: Locale) => {
+  handleLangSelect(code)
+  closeMobile()
+}
+
 const handleThemeSelect = (next: ThemePref) => {
   themeStore.setTheme(next)
   themeOpen.value = false
@@ -219,10 +224,7 @@ onUnmounted(() => {
           :key="l.code"
           type="button"
           :class="['mobile-lang-btn', { current: l.code === localeStore.current }]"
-          @click="
-            handleLangSelect(l.code)
-            closeMobile()
-          "
+          @click="handleMobileLangSelect(l.code)"
         >
           {{ l.label }}
         </button>

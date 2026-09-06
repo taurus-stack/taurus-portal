@@ -24,7 +24,7 @@ const router = createRouter({
       meta: {
         title: 'Taurus — 企业级分布式运维平台',
         description:
-          'Taurus（云枢）— 企业级分布式一体化运维管理平台。覆盖主机管理、自动化运维、程序部署、监控告警、安全认证全场景。',
+          'Taurus（天枢）— 企业级分布式一体化运维管理平台。覆盖主机管理、自动化运维、程序部署、监控告警、安全认证全场景。',
       } as RouteMeta,
     },
     {

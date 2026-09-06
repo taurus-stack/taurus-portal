@@ -1,7 +1,7 @@
 // 正體中文 · 通用模組（P3 完整翻譯）
 export default {
   brand: 'Taurus',
-  brandFull: '雲樞 Taurus',
+  brandFull: '天樞 Taurus',
   yes: '是',
   no: '否',
   ok: '確定',

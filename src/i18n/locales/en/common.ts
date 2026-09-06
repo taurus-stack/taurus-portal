@@ -1,7 +1,7 @@
 // English locale · common (fully translated P3)
 export default {
   brand: 'Taurus',
-  brandFull: 'CloudPivot Taurus',
+  brandFull: 'Tianshu Taurus',
   yes: 'Yes',
   no: 'No',
   ok: 'OK',
