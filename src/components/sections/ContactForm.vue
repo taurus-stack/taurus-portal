@@ -3,7 +3,7 @@ import { reactive, ref, computed } from 'vue'
 import { useI18n } from 'vue-i18n'
 import type { ContactFormData, ContactErrors, ContactMethod } from '@/types'
 import { submitContactLead } from '@/api/contact'
-import wechatQrcode from '@/assets/img/wechat-qrcode.svg'
+import wechatQrcode from '@/assets/img/wechat.png'
 
 const { t } = useI18n()
 

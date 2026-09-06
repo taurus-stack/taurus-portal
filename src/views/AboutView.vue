@@ -3,7 +3,7 @@ import { computed } from 'vue'
 import { useHead } from '@vueuse/head'
 import { useRoute } from 'vue-router'
 import { useI18n } from 'vue-i18n'
-import wechatQrcode from '@/assets/img/wechat-qrcode.svg'
+import wechatQrcode from '@/assets/img/wechat.png'
 
 const IMG_MAP: Record<string, string> = {
   wechat: wechatQrcode,
