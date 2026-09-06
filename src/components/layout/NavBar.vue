@@ -5,6 +5,7 @@ import { useRouter, useRoute, RouterLink } from 'vue-router'
 import { useLocaleStore } from '@/stores/locale'
 import { useThemeStore, type ThemePref } from '@/stores/theme'
 import type { Locale } from '@/types'
+import logoUrl from '@/assets/logo.svg'
 
 const { t, locale } = useI18n()
 const router = useRouter()
@@ -53,6 +54,11 @@ const handleLangSelect = (code: Locale) => {
   // vue-i18n legacy:false → locale is a ref<string>
   ;(locale as unknown as { value: string }).value = code
   langOpen.value = false
+}
+
+const handleMobileLangSelect = (code: Locale) => {
+  handleLangSelect(code)
+  closeMobile()
 }
 
 const handleThemeSelect = (next: ThemePref) => {
@@ -107,9 +113,7 @@ onUnmounted(() => {
     <nav :class="['navbar', { scrolled }]">
       <div class="container nav-inner">
         <RouterLink to="/" class="logo">
-          <span class="logo-icon">
-            <span class="dot"></span>
-          </span>
+          <img :src="logoUrl" alt="Taurus" class="logo-img" />
           <span>{{ t('common.brand') }}</span>
         </RouterLink>
         <ul class="nav-menu">
@@ -220,10 +224,7 @@ onUnmounted(() => {
           :key="l.code"
           type="button"
           :class="['mobile-lang-btn', { current: l.code === localeStore.current }]"
-          @click="
-            handleLangSelect(l.code)
-            closeMobile()
-          "
+          @click="handleMobileLangSelect(l.code)"
         >
           {{ l.label }}
         </button>

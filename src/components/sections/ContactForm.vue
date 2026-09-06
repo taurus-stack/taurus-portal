@@ -3,6 +3,7 @@ import { reactive, ref, computed } from 'vue'
 import { useI18n } from 'vue-i18n'
 import type { ContactFormData, ContactErrors, ContactMethod } from '@/types'
 import { submitContactLead } from '@/api/contact'
+import wechatQrcode from '@/assets/img/wechat.png'
 
 const { t } = useI18n()
 
@@ -30,10 +31,15 @@ const errors = reactive<ContactErrors>({})
 const submitted = ref(false)
 const submitting = ref(false)
 
-const contactMethods = computed<ContactMethod[]>(() => [
+const contactMethods = computed<(ContactMethod & { img?: string })[]>(() => [
   { icon: '📞', title: t('contactForm.methodPhoneTitle'), desc: t('contactForm.methodPhoneDesc') },
   { icon: '✉️', title: t('contactForm.methodEmailTitle'), desc: t('contactForm.methodEmailDesc') },
-  { icon: '💬', title: t('contactForm.methodImTitle'), desc: t('contactForm.methodImDesc') },
+  {
+    icon: '💬',
+    title: t('contactForm.methodImTitle'),
+    desc: t('contactForm.methodImDesc'),
+    img: wechatQrcode,
+  },
   { icon: '🏢', title: t('contactForm.methodAddrTitle'), desc: t('contactForm.methodAddrDesc') },
 ])
 
@@ -130,6 +136,7 @@ const spinStyle = `
             <div v-for="(m, i) in contactMethods" :key="i" class="contact-method">
               <div class="contact-method-icon">{{ m.icon }}</div>
               <div class="contact-method-content">
+                <img v-if="m.img" :src="m.img" :alt="m.title" class="contact-method-qr" />
                 <h5>{{ m.title }}</h5>
                 <p>{{ m.desc }}</p>
               </div>

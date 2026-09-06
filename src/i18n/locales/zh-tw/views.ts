@@ -6,7 +6,7 @@ export default {
     label: '產品功能',
     title: '六大核心模組，建構真正的企業級運維技術堆疊',
     subtitle:
-      'Taurus Stack 採用微服務架構，六大模組各司其職。從前端控制台到後端服務、從命令執行器到進程守護、從認證到調度，透過標準化協同工作，覆蓋企業運維所有關鍵場景。',
+      'Taurus 採用微服務架構，六大模組各司其職。從前端控制台到後端服務、從命令執行器到進程守護、從認證到調度，透過標準化協同工作，覆蓋企業運維所有關鍵場景。',
     ctaTitle: '想深入了解任意模組的整合方式？',
     ctaDesc: '預約產品示範，我們的專家將結合您的實際環境，講解最合適的部署與整合方案。',
     ctaButton: '預約產品示範',
@@ -119,6 +119,135 @@ export default {
         port: '9101',
       },
     },
+    showcase: {
+      label: '產品介面',
+      title: '真實產品介面，所見即所得',
+      desc: '以下為 Taurus Web 管理控制台的真實介面截圖，涵蓋主機管理、批次執行、腳本庫、工作流編排、執行記錄等核心運維場景。',
+      categories: [
+        {
+          key: 'dashboard',
+          name: '總覽儀表板',
+          screenshots: [
+            {
+              file: 'home.png',
+              title: '運維總覽',
+              desc: '主機線上狀態、任務執行概覽與告警資訊一屏掌控',
+            },
+          ],
+        },
+        {
+          key: 'host',
+          name: '主機管理',
+          screenshots: [
+            {
+              file: 'my-host.png',
+              title: '我的主機',
+              desc: '主機資產納管、分組標籤與線上狀態統一管理',
+            },
+            {
+              file: 'registration-token.png',
+              title: '註冊令牌',
+              desc: '一次性註冊令牌 + IP 白名單，安全接入新主機',
+            },
+            {
+              file: 'heartbeat-hosts.png',
+              title: '心跳主機',
+              desc: '即時心跳上報，秒級感知主機線上/離線狀態',
+            },
+            {
+              file: 'heartbeat-record.png',
+              title: '心跳記錄',
+              desc: '完整心跳歷史留痕，支援異常回溯與稽核',
+            },
+          ],
+        },
+        {
+          key: 'execution',
+          name: '執行中心',
+          screenshots: [
+            {
+              file: 'run-command.png',
+              title: '遠端命令',
+              desc: '基於 gRPC 的高效能遠端命令執行，即時串流輸出',
+            },
+            {
+              file: 'run-script.png',
+              title: '腳本執行',
+              desc: 'Shell / Python 腳本模板化執行，支援批次下發',
+            },
+            {
+              file: 'run-detail.png',
+              title: '執行詳情',
+              desc: '逐主機執行結果分層展示，stdout/stderr 按需載入',
+            },
+            {
+              file: 'rerun.png',
+              title: '失敗重跑',
+              desc: '失敗主機一鍵重跑，支援部分成功場景精準重試',
+            },
+          ],
+        },
+        {
+          key: 'script',
+          name: '腳本庫',
+          screenshots: [
+            {
+              file: 'script-library.png',
+              title: '腳本庫',
+              desc: '腳本版本管理、分類標籤與參數化模板',
+            },
+          ],
+        },
+        {
+          key: 'records',
+          name: '執行記錄',
+          screenshots: [
+            {
+              file: 'execution-records.png',
+              title: '執行記錄',
+              desc: '全量執行歷史檢索，支援按主機、腳本、時間篩選',
+            },
+            {
+              file: 'execution-log.png',
+              title: '執行日誌',
+              desc: '完整 stdout/stderr 日誌留痕，滿足稽核合規要求',
+            },
+          ],
+        },
+        {
+          key: 'workflow',
+          name: '工作流',
+          screenshots: [
+            {
+              file: 'job-management.png',
+              title: '任務管理',
+              desc: '可視化工作流編排，多步驟任務統一排程',
+            },
+            {
+              file: 'job-exec-detail.png',
+              title: '任務執行詳情',
+              desc: '任務整體執行進度與各節點狀態即時追蹤',
+            },
+            {
+              file: 'job-node-exec-detail.png',
+              title: '節點執行詳情',
+              desc: '單節點執行日誌與結果深度下鑽分析',
+            },
+          ],
+        },
+        {
+          key: 'program',
+          name: '程式管理',
+          screenshots: [
+            {
+              file: 'program-commands.png',
+              title: '程式命令',
+              desc: '遠端程式安裝、啟停、重啟與配置批次下發',
+            },
+          ],
+        },
+      ],
+    },
   },
 
   solutions: {
@@ -191,8 +320,8 @@ export default {
       },
     },
     faq1: {
-      q: 'Taurus Stack 與 Ansible / SaltStack 有什麼本質差異？',
-      a: 'Ansible/Salt 專注「執行」本身，而 Taurus Stack 是一體化運維平台。除遠端執行外，還內建主機生命週期 + 憑證管理、通用進程守護（類 systemd 但託管級能力 + 零停機升級）、工作流視覺化、腳本庫版本管理、程式批次部署分發、多層安全（mTLS+Macaroon+簽章）、完整稽核與權限體系。更像「Ansible + Supervisor + Rundeck + Foreman」的一體化替代。',
+      q: 'Taurus 與 Ansible / SaltStack 有什麼本質差異？',
+      a: 'Ansible/Salt 專注「執行」本身，而 Taurus 是一體化運維平台。除遠端執行外，還內建主機生命週期 + 憑證管理、通用進程守護（類 systemd 但託管級能力 + 零停機升級）、工作流視覺化、腳本庫版本管理、程式批次部署分發、多層安全（mTLS+Macaroon+簽章）、完整稽核與權限體系。更像「Ansible + Supervisor + Rundeck + Foreman」的一體化替代。',
     },
     faq2: {
       q: 'Supervisor 零停機升級是如何做到中斷 < 1 秒的？',
@@ -212,18 +341,17 @@ export default {
     },
     faq6: {
       q: '可以只使用部分模組嗎？例如只要 Supervisor 守護業務進程？',
-      a: '完全可以。Taurus Stack 六大模組均可獨立部署並按需啟用：①只啟用 Supervisor → 作為通用進程守護 + 零停機升級工具；②只啟用 Executor + Backend → 作為遠端命令執行平台；③只啟用 Scheduler + Backend → 作為分散式定時任務調度器。通過環境變數開關即可關閉非依賴模組的註冊與健康檢查。模組間通過標準協議解耦，不強行綁定。',
+      a: '完全可以。Taurus 六大模組均可獨立部署並按需啟用：①只啟用 Supervisor → 作為通用進程守護 + 零停機升級工具；②只啟用 Executor + Backend → 作為遠端命令執行平台；③只啟用 Scheduler + Backend → 作為分散式定時任務調度器。通過環境變數開關即可關閉非依賴模組的註冊與健康檢查。模組間通過標準協議解耦，不強行綁定。',
     },
   },
 
   download: {
     label: '下載中心',
-    title: '取得 Taurus Stack · 從原始碼到二進位',
+    title: '取得 Taurus · 從原始碼到二進位',
     introTip:
       '所有原始碼倉庫均使用 AGPLv3 協議。生產環境推薦配合 certs/ 目錄完成 mTLS 憑證初始化後再啟動。',
-    repoLink: 'https://github.com/taurus-ops/taurus-stack',
+    repoLink: 'https://github.com/taurus-stack/taurus',
     repoButton: 'GitHub 原始碼倉庫',
-    docsButton: '先讀部署指南',
     composeLabel: 'Docker Compose All-in-One',
     composeTitle: '快速一鍵啟動',
     composeDesc: '僅供 PoC / Demo 場景，生產請依文件做分層高可用部署。',
@@ -336,7 +464,7 @@ export default {
   about: {
     label: '關於我們',
     title: '為企業級運維而生的開源專案',
-    heroTagline: 'Taurus Stack（雲樞）是一個由社區驅動的開源分散式一體化運維平台。',
+    heroTagline: 'Taurus（天樞）是一個由社區驅動的開源分散式一體化運維平台。',
     valuesLabel: '核心價值觀',
     valuesTitle: '我們堅信的 4 件事',
     roadmapLabel: '專案歷程',
@@ -379,7 +507,7 @@ export default {
       v4: {
         num: '04',
         title: '社區共建',
-        desc: 'Taurus Stack 為社區而生。任何企業、個人、團隊都可以自由使用、貢獻與二次分發。',
+        desc: 'Taurus 為社區而生。任何企業、個人、團隊都可以自由使用、貢獻與二次分發。',
         c1: '#fbbf24',
         c2: '#f59e0b',
       },
@@ -483,25 +611,26 @@ export default {
       cc1: {
         icon: '📞',
         title: '電話諮詢',
-        desc: 'TODO：正式上線前補齊企業服務熱線',
+        desc: '+86 13124826989 · 工作日 9:00-18:00',
         badge: '工作時間',
       },
       cc2: {
         icon: '✉️',
         title: '郵件聯繫',
-        desc: 'TODO：正式上線前補齊商務郵箱',
+        desc: 'taurus-stack@outlook.com · 1 個工作日內回覆',
         badge: '商務合作',
       },
       cc3: {
         icon: '💬',
-        title: '線上客服',
-        desc: 'TODO：正式上線前補齊 IM 頻道',
+        title: '微信掃碼',
+        desc: '掃描二維碼添加企業微信，獲取即時技術支援',
         badge: '社區支援',
+        img: 'wechat',
       },
       cc4: {
         icon: '🏢',
         title: '公司地址',
-        desc: 'TODO：正式上線前補齊實際辦公地址',
+        desc: '上海市浦東新區張江高科技園區博雲路 2 號上海軟體園 6 號樓 301 室',
         badge: '拜訪預約',
       },
     },

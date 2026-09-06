@@ -6,7 +6,7 @@ export default {
     label: 'Product Features',
     title: 'Six Core Modules Building a Truly Enterprise-Grade Ops Stack',
     subtitle:
-      'Taurus Stack uses a microservice architecture where each of the six modules plays its own role. From the web console to backend services, from command executors to process supervisors, from authentication to scheduling — they collaborate via standardized protocols and cover every critical scenario of enterprise operations.',
+      'Taurus uses a microservice architecture where each of the six modules plays its own role. From the web console to backend services, from command executors to process supervisors, from authentication to scheduling — they collaborate via standardized protocols and cover every critical scenario of enterprise operations.',
     ctaTitle: 'Want to Learn More About Integrating Any Module?',
     ctaDesc:
       'Book a product demo and our experts will walk you through the most suitable deployment and integration plan tailored to your environment.',
@@ -159,6 +159,135 @@ export default {
         port: '9101',
       },
     },
+    showcase: {
+      label: 'Product UI',
+      title: 'Real Product Interface — What You See Is What You Get',
+      desc: 'Below are real screenshots of the Taurus Web management console, covering core ops scenarios such as host management, batch execution, script library, workflow orchestration, and execution records.',
+      categories: [
+        {
+          key: 'dashboard',
+          name: 'Overview Dashboard',
+          screenshots: [
+            {
+              file: 'home.png',
+              title: 'Ops Overview',
+              desc: 'Host online status, task execution summary, and alerts on a single screen',
+            },
+          ],
+        },
+        {
+          key: 'host',
+          name: 'Host Management',
+          screenshots: [
+            {
+              file: 'my-host.png',
+              title: 'My Hosts',
+              desc: 'Host asset onboarding, grouping & tags, and unified online status management',
+            },
+            {
+              file: 'registration-token.png',
+              title: 'Registration Token',
+              desc: 'One-time registration token + IP whitelist for secure host onboarding',
+            },
+            {
+              file: 'heartbeat-hosts.png',
+              title: 'Heartbeat Hosts',
+              desc: 'Real-time heartbeat reporting with second-level online/offline detection',
+            },
+            {
+              file: 'heartbeat-record.png',
+              title: 'Heartbeat Records',
+              desc: 'Complete heartbeat history for anomaly backtracking and auditing',
+            },
+          ],
+        },
+        {
+          key: 'execution',
+          name: 'Execution Center',
+          screenshots: [
+            {
+              file: 'run-command.png',
+              title: 'Remote Command',
+              desc: 'High-performance gRPC-based remote command execution with real-time streaming output',
+            },
+            {
+              file: 'run-script.png',
+              title: 'Script Execution',
+              desc: 'Shell / Python script template execution with batch dispatch support',
+            },
+            {
+              file: 'run-detail.png',
+              title: 'Execution Detail',
+              desc: 'Per-host execution results with layered display and on-demand stdout/stderr loading',
+            },
+            {
+              file: 'rerun.png',
+              title: 'Rerun',
+              desc: 'One-click rerun for failed hosts with precise retry in partial-success scenarios',
+            },
+          ],
+        },
+        {
+          key: 'script',
+          name: 'Script Library',
+          screenshots: [
+            {
+              file: 'script-library.png',
+              title: 'Script Library',
+              desc: 'Script versioning, category tags, and parameterized templates',
+            },
+          ],
+        },
+        {
+          key: 'records',
+          name: 'Execution Records',
+          screenshots: [
+            {
+              file: 'execution-records.png',
+              title: 'Execution Records',
+              desc: 'Full execution history search with filters by host, script, and time',
+            },
+            {
+              file: 'execution-log.png',
+              title: 'Execution Logs',
+              desc: 'Complete stdout/stderr log retention for audit and compliance',
+            },
+          ],
+        },
+        {
+          key: 'workflow',
+          name: 'Workflow',
+          screenshots: [
+            {
+              file: 'job-management.png',
+              title: 'Job Management',
+              desc: 'Visual workflow orchestration with unified multi-step task scheduling',
+            },
+            {
+              file: 'job-exec-detail.png',
+              title: 'Job Execution Detail',
+              desc: 'Overall job execution progress and real-time per-node status tracking',
+            },
+            {
+              file: 'job-node-exec-detail.png',
+              title: 'Node Execution Detail',
+              desc: 'Deep dive into single-node execution logs and results',
+            },
+          ],
+        },
+        {
+          key: 'program',
+          name: 'Program Management',
+          screenshots: [
+            {
+              file: 'program-commands.png',
+              title: 'Program Commands',
+              desc: 'Remote program install, start/stop/restart, and batch config dispatch',
+            },
+          ],
+        },
+      ],
+    },
   },
 
   solutions: {
@@ -233,8 +362,8 @@ export default {
       },
     },
     faq1: {
-      q: 'What is the essential difference between Taurus Stack and Ansible / SaltStack?',
-      a: 'Ansible/Salt focuses on "execution" itself, while Taurus Stack is an integrated ops platform. Beyond remote execution, it also provides built-in host lifecycle + certificate management, a general process supervisor (systemd-like but with hosting-level capabilities + zero-downtime upgrade), visual workflows, script library version management, program batch deployment distribution, multiple layers of security (mTLS + Macaroon + signatures), and a complete audit and permission system. It is more like an all-in-one replacement for "Ansible + Supervisor + Rundeck + Foreman".',
+      q: 'What is the essential difference between Taurus and Ansible / SaltStack?',
+      a: 'Ansible/Salt focuses on "execution" itself, while Taurus is an integrated ops platform. Beyond remote execution, it also provides built-in host lifecycle + certificate management, a general process supervisor (systemd-like but with hosting-level capabilities + zero-downtime upgrade), visual workflows, script library version management, program batch deployment distribution, multiple layers of security (mTLS + Macaroon + signatures), and a complete audit and permission system. It is more like an all-in-one replacement for "Ansible + Supervisor + Rundeck + Foreman".',
     },
     faq2: {
       q: 'How does Supervisor achieve interrupt < 1s for zero-downtime upgrades?',
@@ -254,18 +383,17 @@ export default {
     },
     faq6: {
       q: 'Can I use only some modules? For example, just Supervisor to protect business processes?',
-      a: 'Absolutely. All six Taurus Stack modules can be deployed independently and enabled as needed: ① Only enable Supervisor → as a general process supervisor + zero-downtime upgrade tool; ② Only enable Executor + Backend → as a remote command execution platform; ③ Only enable Scheduler + Backend → as a distributed scheduled task scheduler. Non-dependent module registration and health checks can be turned off via environment variable switches. Modules are decoupled via standard protocols and are not forced to be bundled.',
+      a: 'Absolutely. All six Taurus modules can be deployed independently and enabled as needed: ① Only enable Supervisor → as a general process supervisor + zero-downtime upgrade tool; ② Only enable Executor + Backend → as a remote command execution platform; ③ Only enable Scheduler + Backend → as a distributed scheduled task scheduler. Non-dependent module registration and health checks can be turned off via environment variable switches. Modules are decoupled via standard protocols and are not forced to be bundled.',
     },
   },
 
   download: {
     label: 'Download',
-    title: 'Get Taurus Stack · From Source Code to Binary',
+    title: 'Get Taurus · From Source Code to Binary',
     introTip:
       'All source repositories use the AGPLv3 license. For production environments, we recommend completing mTLS certificate initialization via the certs/ directory before starting.',
-    repoLink: 'https://github.com/taurus-ops/taurus-stack',
+    repoLink: 'https://github.com/taurus-stack/taurus',
     repoButton: 'GitHub Source Repository',
-    docsButton: 'Read Deployment Guide First',
     composeLabel: 'Docker Compose All-in-One',
     composeTitle: 'Quick One-Click Start',
     composeDesc:
@@ -384,8 +512,7 @@ export default {
   about: {
     label: 'About Us',
     title: 'Open Source Project Built for Enterprise-Grade Ops',
-    heroTagline:
-      'Taurus Stack is a community-driven open-source distributed integrated ops platform.',
+    heroTagline: 'Taurus is a community-driven open-source distributed integrated ops platform.',
     valuesLabel: 'Core Values',
     valuesTitle: '4 Things We Believe In',
     roadmapLabel: 'Project Timeline',
@@ -430,7 +557,7 @@ export default {
       v4: {
         num: '04',
         title: 'Community Building',
-        desc: 'Taurus Stack is built for the community. Any enterprise, individual, or team is free to use, contribute, and redistribute.',
+        desc: 'Taurus is built for the community. Any enterprise, individual, or team is free to use, contribute, and redistribute.',
         c1: '#fbbf24',
         c2: '#f59e0b',
       },
@@ -539,25 +666,26 @@ export default {
       cc1: {
         icon: '📞',
         title: 'Phone Consultation',
-        desc: 'TODO: Enterprise service hotline to be added before official launch',
+        desc: '+86 13124826989 · Weekdays 9:00-18:00 (CST)',
         badge: 'Business Hours',
       },
       cc2: {
         icon: '✉️',
         title: 'Email Contact',
-        desc: 'TODO: Business email to be added before official launch',
+        desc: 'taurus-stack@outlook.com · Reply within 1 business day',
         badge: 'Business Cooperation',
       },
       cc3: {
         icon: '💬',
-        title: 'Online Support',
-        desc: 'TODO: IM channel to be added before official launch',
+        title: 'WeChat QR',
+        desc: 'Scan the QR code to add our WeChat for real-time support',
         badge: 'Community Support',
+        img: 'wechat',
       },
       cc4: {
         icon: '🏢',
         title: 'Company Address',
-        desc: 'TODO: Actual office address to be added before official launch',
+        desc: 'Room 301, Building 6, Shanghai Software Park, No.2 Boyun Road, Zhangjiang Hi-Tech Park, Pudong New Area, Shanghai',
         badge: 'Visit Reservation',
       },
     },

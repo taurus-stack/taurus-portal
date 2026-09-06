@@ -29,11 +29,16 @@ const homeSection = {
   testimonialsLabel: homeSections.testimonialsLabel,
   testimonialsTitle: homeSections.testimonialsTitle,
   testimonialsDesc: homeSections.testimonialsDesc,
+  clientsLabel: homeSections.clientsLabel,
   contactLabel: homeSections.contactLabel,
   contactHeroTitle: homeSections.contactHeroTitle,
   contactHeroDesc: homeSections.contactHeroDesc,
   scheduleFormTitle: homeSections.scheduleFormTitle,
   scheduleFormDesc: homeSections.scheduleFormDesc,
+  screenshotsLabel: homeSections.screenshotsLabel,
+  screenshotsTitle: homeSections.screenshotsTitle,
+  screenshotsDesc: homeSections.screenshotsDesc,
+  screenshotsCta: homeSections.screenshotsCta,
 }
 
 export default {

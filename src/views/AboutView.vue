@@ -3,6 +3,11 @@ import { computed } from 'vue'
 import { useHead } from '@vueuse/head'
 import { useRoute } from 'vue-router'
 import { useI18n } from 'vue-i18n'
+import wechatQrcode from '@/assets/img/wechat.png'
+
+const IMG_MAP: Record<string, string> = {
+  wechat: wechatQrcode,
+}
 
 const route = useRoute()
 useHead(() => ({
@@ -26,19 +31,6 @@ const values = computed(() =>
       desc: t(`${p}.desc`),
       c1: t(`${p}.c1`),
       c2: t(`${p}.c2`),
-    }
-  }),
-)
-
-const MILESTONE_KEYS = ['ms1', 'ms2', 'ms3', 'ms4', 'ms5', 'ms6'] as const
-const milestones = computed(() =>
-  MILESTONE_KEYS.map((k) => {
-    const p = `views.about.roadmap.${k}`
-    return {
-      year: t(`${p}.year`),
-      title: t(`${p}.title`),
-      desc: t(`${p}.desc`),
-      highlight: t(`${p}.highlight`) === 'true',
     }
   }),
 )
@@ -88,11 +80,14 @@ const CONTACT_KEYS = ['cc1', 'cc2', 'cc3', 'cc4'] as const
 const contactCards = computed(() =>
   CONTACT_KEYS.map((k) => {
     const p = `views.about.contactCards.${k}`
+    const imgKey = t(`${p}.img`)
+    const img = imgKey && !imgKey.startsWith(`${p}.img`) ? IMG_MAP[imgKey] : undefined
     return {
       icon: t(`${p}.icon`),
       title: t(`${p}.title`),
       desc: t(`${p}.desc`),
       badge: t(`${p}.badge`),
+      img,
     }
   }),
 )
@@ -126,26 +121,6 @@ const contactCards = computed(() =>
             <p>{{ v.desc }}</p>
           </div>
         </div>
-      </div>
-    </section>
-
-    <section class="av-roadmap">
-      <div class="container">
-        <div class="section-header reveal">
-          <div class="section-label">{{ t('views.about.roadmapLabel') }}</div>
-          <h2 class="section-title">{{ t('views.about.roadmapTitle') }}</h2>
-          <p class="section-desc">{{ t('views.about.roadmapDesc') }}</p>
-        </div>
-        <ol class="av-roadmap-line reveal">
-          <li v-for="(m, i) in milestones" :key="i" :class="{ highlight: m.highlight }">
-            <div class="r-dot"></div>
-            <div class="r-content">
-              <div class="r-year">{{ m.year }}</div>
-              <h4>{{ m.title }}</h4>
-              <p>{{ m.desc }}</p>
-            </div>
-          </li>
-        </ol>
       </div>
     </section>
 
@@ -226,6 +201,7 @@ const contactCards = computed(() =>
             >
             <h4>{{ c.title }}</h4>
             <p>{{ c.desc }}</p>
+            <img v-if="c.img" :src="c.img" :alt="c.title" class="av-cc-qr" />
           </div>
         </div>
       </div>
@@ -312,58 +288,6 @@ const contactCards = computed(() =>
     line-height: 1.7;
   }
 }
-.av-roadmap {
-  padding: 40px 0 80px;
-}
-.av-roadmap-line {
-  list-style: none;
-  position: relative;
-  max-width: 860px;
-  margin: 0 auto;
-  padding-left: 40px;
-  &::before {
-    content: '';
-    position: absolute;
-    left: 12px;
-    top: 0;
-    bottom: 0;
-    width: 2px;
-    background: linear-gradient(180deg, var(--teal-400), var(--navy-500));
-  }
-  > li {
-    position: relative;
-    padding-bottom: 32px;
-  }
-  & li.highlight .r-dot {
-    background: linear-gradient(135deg, var(--amber-400), var(--amber-600));
-    box-shadow: 0 0 0 3px rgba(251, 191, 36, 0.22);
-  }
-  .r-dot {
-    position: absolute;
-    left: -34px;
-    top: 4px;
-    width: 18px;
-    height: 18px;
-    border-radius: 50%;
-    background: linear-gradient(135deg, var(--teal-400), var(--teal-600));
-    border: 3px solid var(--bg-slate);
-    box-shadow: 0 0 0 3px rgba(45, 212, 191, 0.2);
-  }
-  .r-year {
-    font-size: 13px;
-    color: var(--teal-600);
-    font-weight: 700;
-    letter-spacing: 0.04em;
-  }
-  h4 {
-    font-size: 17px;
-    margin: 4px 0 8px;
-  }
-  p {
-    color: var(--text-secondary);
-    line-height: 1.7;
-  }
-}
 .av-license {
   padding: 40px 0 80px;
 }
@@ -412,6 +336,15 @@ const contactCards = computed(() =>
     color: #cbd5e1;
     font-size: 14px;
     line-height: 1.6;
+  }
+  .btn-ghost {
+    color: rgba(255, 255, 255, 0.85);
+    border-color: rgba(255, 255, 255, 0.3);
+  }
+  .btn-ghost:hover {
+    color: var(--teal-300);
+    border-color: var(--teal-400);
+    background: rgba(20, 184, 166, 0.12);
   }
 }
 
@@ -495,6 +428,13 @@ const contactCards = computed(() =>
     font-size: 11px;
     background: var(--slate-100);
     color: var(--slate-600);
+  }
+  .av-cc-qr {
+    width: 120px;
+    height: 120px;
+    margin: 16px auto 0;
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
   }
 }
 

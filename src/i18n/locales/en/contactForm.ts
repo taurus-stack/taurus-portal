@@ -31,11 +31,12 @@ export default {
   submitLoading: 'Submitting…',
   requiredMarker: '*',
   methodPhoneTitle: 'Phone',
-  methodPhoneDesc: 'TODO — to be filled in before the public launch',
+  methodPhoneDesc: '+86 13124826989 · Weekdays 9:00-18:00 (CST)',
   methodEmailTitle: 'Email',
-  methodEmailDesc: 'TODO — to be filled in before the public launch',
-  methodImTitle: 'Live chat',
-  methodImDesc: 'TODO — to be filled in before the public launch',
+  methodEmailDesc: 'taurus-stack@outlook.com · Reply within 1 business day',
+  methodImTitle: 'WeChat QR',
+  methodImDesc: 'Scan the QR code below to add our WeChat for real-time support',
   methodAddrTitle: 'Office address',
-  methodAddrDesc: 'TODO — to be filled in before the public launch',
+  methodAddrDesc:
+    'Room 301, Building 6, Shanghai Software Park, No.2 Boyun Road, Zhangjiang Hi-Tech Park, Pudong New Area, Shanghai',
 }
