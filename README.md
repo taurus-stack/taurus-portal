@@ -1,199 +1,351 @@
-# Taurus Stack · Portal (官网门户)
+# Taurus Stack
 
-> Taurus Stack 企业级分布式运维平台 — 官方门户 / 官网前端工程。
->
-> 基于 **Vue 3 + TypeScript + Vite 5 + Pinia + Vue Router + vue-i18n + @vueuse/head** 构建；
-> 联系表单通过真实 `axios` POST 到 **taurus-backend `POST /api/taurus/contact-lead/`**（ContactLead Model+ViewSet+migration 已内建）。
-> 其余 5 个内页（Product / Solutions / Docs / Download / About）无需后端。
+<div align="center">
 
----
+**Distributed Operations Management System**
 
-## 1. 工程特性一览
+[English](README.md) | [中文](README.zh-CN.md)
 
-| 维度       | 实现 / 技术                                                                                                                                                                                                                  |
-| ---------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 框架       | Vue 3.5 + `<script setup lang="ts">` + Composition API                                                                                                                                                                       |
-| 构建       | Vite 5，目标 ES2020，`manualChunks` 拆成 **11 个可单独缓存的 chunk**（vue-core / vue-router / pinia / vue-i18n / @vueuse-head / axios / i18n-zh-cn / i18n-en / i18n-zh-tw / index / CSS）                                    |
-| 状态       | Pinia 2 setup store（theme / locale）                                                                                                                                                                                        |
-| 路由       | Vue Router 4，7 路由 + 404 + meta 标题同步 + `/#contact` 锚跳转                                                                                                                                                              |
-| 国际化     | vue-i18n 9.14，**3 语 × 8 模块 = 24 份 ts**；新旧命名空间 (`homeSection` 扁平 + `homeSections` 深层) 兼容；三语顶层 key Δ=0                                                                                                  |
-| 主题       | light / dark / system 三选，主题枚举 store + `prefers-color-scheme` 实时监听 + CSS 语义 token 重映射（品牌色不变，只反转语义背景/文字/边框/阴影），NavBar 桌面下拉 + 移动菜单主题行                                          |
-| SEO        | `@vueuse/head` 运行时 useHead；`index.html` 静态模板写入 **fallback canonical + Organization JSON-LD + meta description / theme-color**（无 JS 执行爬虫兜底）。`public/sitemap.xml` 6 URLs，`public/robots.txt` 含 Sitemap。 |
-| 代码质量   | ESLint 9 flat（TS + Vue recommended，无 type-info）+ Prettier 3.4 + lint-staged 15.3 + simple-git-hooks 2.11（pre-commit = lint-staged）                                                                                     |
-| 联系表单   | 真实 axios POST `{baseURL}/taurus/contact-lead/`；UI 规模 1–5 语义映射到 `startup/small/mid/large/enterprise`；失败自动 fallback 1.5s mock；联系信息卡片（电话/邮箱/IM/地址）保留 TODO 占位                                  |
-| 后端存储   | Django 4.2 `ContactLead` 模型（表：`taurus_contact_lead`），已生成 migration `0015_contact_lead.py`；POST AllowAny + 60/min/IP 限流；其他操作仅管理员                                                                        |
-| 构建健康门 | `scripts/check-dist.mjs` — 8 项断言 (axios>1KB / index≤55KB / vue-core≤65KB / css≤12KB / 三语 key Δ≤5 / SEO 存在 / sitemap≥5 URLs)，CI 全绿                                                                                  |
+[![License](https://img.shields.io/badge/license-AGPLv3-blue.svg)](LICENSE)
+[![Python Version](https://img.shields.io/badge/python-3.12+-blue.svg)](https://www.python.org/)
+[![Vue Version](https://img.shields.io/badge/vue-3.2+-green.svg)](https://vuejs.org/)
+[![TypeScript](https://img.shields.io/badge/typescript-4.9+-blue.svg)](https://www.typescriptlang.org/)
+[![Website](https://img.shields.io/badge/Website-taurus--portal-teal.svg)](https://taurus-stack.github.io/taurus-portal/)
+[![Community Edition](https://img.shields.io/badge/Community-37%2F77%20Features-brightgreen.svg)](#community-edition)
+[![Enterprise Edition](https://img.shields.io/badge/Enterprise-77%2F77%20Features-blue.svg)](#enterprise-edition)
 
-**构建尺寸（P2-7 build 最终数据）**：
-
-| Chunk                                        | Raw      | Gzip                     |
-| -------------------------------------------- | -------- | ------------------------ |
-| index                                        | 52.5 KB  | **15.55 KB** (≤ 55 KB ✓) |
-| vue-core                                     | 74.2 KB  | **29.33 KB** (≤ 65 KB ✓) |
-| axios                                        | 51.4 KB  | **19.49 KB** (非空 ✓)    |
-| css (单文件)                                 | 52.2 KB  | **9.45 KB** (≤ 12 KB ✓)  |
-| i18n-zh-cn / en / zh-tw                      | 26–36 KB | 17.3 / 18.5 / 18.5 KB    |
-| vue-router / pinia / vue-i18n / @vueuse-head | 4–64 KB  | 1.9–20.4 KB              |
+</div>
 
 ---
 
-## 2. 快速开始
+## What is Taurus Stack?
 
-### 2.1 环境要求
+Taurus Stack is a comprehensive distributed operations management system (堡垒机 / 运维管理平台) designed for managing remote hosts, executing commands, and monitoring system health. It provides secure, scalable, and reliable infrastructure management capabilities.
 
-- **Node.js** ≥ 20.x（构建 Docker 镜像用 20-alpine）
-- **pnpm** 10.x（`corepack prepare pnpm@latest-10 --activate`）
-- **Python 3.12 + conda env `taurus` + poetry**：仅在需要修改后端 ContactLead、执行 `makemigrations`、或运行 Django 时使用（详见上一层 `taurus-backend/`）
+Taurus Stack ships in two editions sharing the same codebase:
 
-### 2.2 本地开发
+|                          | **Community Edition**  | **Enterprise Edition**                 |
+| ------------------------ | ---------------------- | -------------------------------------- |
+| **License**              | AGPL-3.0 (open source) | Commercial                             |
+| **Features**             | 37 / 77                | 77 / 77                                |
+| **Workflow Engine**      | ✅ Basic orchestration  | ✅ Full + Approval + DAG                |
+| **High Availability**    | Single instance        | Redis HA + Leader Election             |
+| **Audit & Approval**     | ❌                      | ✅ Script / Program / Workflow Approval |
+| **Notification**         | ❌                      | ✅ Email + Webhook + Callback           |
+| **Multi-Host Execution** | ❌                      | ✅ Serial / Parallel / Batch            |
+| **License System**       | ❌                      | ✅ RSA-PSS-SHA256 Signed License        |
+| **Source Code**          | Fully open source      | `taurus_ee/` closed-source package     |
+
+> **Security**: Enterprise Edition code lives in a separate private repository. The Community Edition repository contains zero private keys, zero signing code, and `taurus_ee/` is permanently gitignored. See [docs/editions.md](docs/editions.md) for the full separation design.
+
+---
+
+## Screenshots
+
+### Dashboard & Host Management
+
+| Home Dashboard                        | My Hosts                                        | Heartbeat Hosts                                                        | Heartbeat Record                                                          |
+|:-------------------------------------:|:-----------------------------------------------:|:----------------------------------------------------------------------:|:-------------------------------------------------------------------------:|
+| [![Home](img/home.png)](img/home.png) | [![My Hosts](img/my-host.png)](img/my-host.png) | [![Heartbeat Hosts](img/heartbeat-hosts.png)](img/heartbeat-hosts.png) | [![Heartbeat Record](img/heartbeat-record.png)](img/heartbeat-record.png) |
+
+### Job Management
+
+| Job Management                                                      | Job Execution Detail                                                   | Job Node Execution Detail                                                             |
+|:-------------------------------------------------------------------:|:----------------------------------------------------------------------:|:-------------------------------------------------------------------------------------:|
+| [![Job Management](img/job-management.png)](img/job-management.png) | [![Job Exec Detail](img/job-exec-detail.png)](img/job-exec-detail.png) | [![Job Node Exec Detail](img/job-node-exec-detail.png)](img/job-node-exec-detail.png) |
+
+| Execution Records                                                            | Execution Log                                                    | Run Detail                                              | Rerun                                    |
+|:----------------------------------------------------------------------------:|:----------------------------------------------------------------:|:-------------------------------------------------------:|:----------------------------------------:|
+| [![Execution Records](img/execution-records.png)](img/execution-records.png) | [![Execution Log](img/execution-log.png)](img/execution-log.png) | [![Run Detail](img/run-detail.png)](img/run-detail.png) | [![Rerun](img/rerun.png)](img/rerun.png) |
+
+### Scripts & Commands
+
+| Script Library                                                      | Run Script                                              | Program Commands                                                          | Run Command                                                |
+|:-------------------------------------------------------------------:|:-------------------------------------------------------:|:-------------------------------------------------------------------------:|:----------------------------------------------------------:|
+| [![Script Library](img/script-library.png)](img/script-library.png) | [![Run Script](img/run-script.png)](img/run-script.png) | [![Program Commands](img/program-commands.png)](img/program-commands.png) | [![Run Command](img/run-command.png)](img/run-command.png) |
+
+### Registration
+
+| Registration Token                                                              |
+|:-------------------------------------------------------------------------------:|
+| [![Registration Token](img/registration-token.png)](img/registration-token.png) |
+
+---
+
+## Architecture
+
+```
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                          Taurus Stack Architecture                           │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                                                                             │
+│   ┌──────────────┐  HTTP/REST+JWT   ┌──────────────────────────────────┐  │
+│   │   Taurus Web  │ ───────────────►│        Taurus Backend              │  │
+│   │   (Vue 3)     │ ◄────────────── │      (Django 4.2 + dvadmin)       │  │
+│   └──────────────┘  WebSocket        │                                   │  │
+│                                       │  ┌──────────────────────────┐   │  │
+│                                       │  │   Edition Gate            │   │  │
+│                                       │  │  (edition + license.valid)│   │  │
+│                                       │  └──────────┬───────────────┘   │  │
+│                                       │             │ EE features        │  │
+│                                       │             │ auto-discover      │  │
+│                                       │     ┌───────▼───────────────┐   │  │
+│                                       │     │ taurus_ee/  (EE only) │   │  │
+│                                       │     │  • RSA License Verify │   │  │
+│                                       │     │  • Approval Engine     │   │  │
+│                                       │     │  • Workflow DAG        │   │  │
+│                                       │     │  • HA Scheduler        │   │  │
+│                                       │     └───────┬───────────────┘   │  │
+│                                       └──────┬──────┬──────────────────┘  │
+│                                              │      │                       │
+│                     ┌────────────────────────┘      │                      │
+│                     │ gRPC + mTLS                    │ HTTP + JWT           │
+│   ┌──────────────┐  │                                │                      │
+│   │   Taurus     │  ▼                                ▼                      │
+│   │  Executor    │ ◄───────────────────────┐     ┌──────────────┐         │
+│   │  (gRPC)      │ ───────────────────────►│     │ Taurus Auth  │         │
+│   └──────────────┘                         │     │ (Ticket Svc) │         │
+│                                             │     └──────────────┘         │
+│   ┌──────────────┐  HTTP(Heartbeat)        │                                │
+│   │   Taurus     │ ◄───────────────────────┘                                │
+│   │ Supervisor   │  (asyncio daemon)                                        │
+│   └──────────────┘                                                          │
+│                                                                             │
+│   ┌──────────────┐              Redis Queue              ┌──────────────┐  │
+│   │   Taurus     │ ─────────────────────────────────────►│ Taurus Backend│  │
+│   │  Scheduler   │   APScheduler + Leader Election       │ (run_scheduler│  │
+│   │ (standalone) │                                        │  _worker)     │  │
+│   └──────────────┘                                        └──────────────┘  │
+│                                                                             │
+└─────────────────────────────────────────────────────────────────────────────┘
+```
+
+### Communication Overview
+
+| Link                 | Protocol         | Auth                        | Purpose                                |
+| -------------------- | ---------------- | --------------------------- | -------------------------------------- |
+| Web → Backend        | HTTP/REST + JWT  | HMAC-SHA256 signed tokens   | Management API                         |
+| Backend ↔ Executor   | gRPC + mTLS      | Mutual TLS certificates     | Remote command execution               |
+| Backend ↔ Supervisor | HTTP + Signature | HMAC-SHA256 request signing | Heartbeat + Program control            |
+| Backend ↔ Auth       | HTTP + JWT       | JWT with service secret     | One-time execution ticket verification |
+| Scheduler → Backend  | Redis Queue      | Redis auth                  | Schedule dispatch                      |
+
+---
+
+## Repository Structure
+
+This is a **git submodule** aggregate repository. Each service lives in its own repository with independent versioning and `.gitignore`.
+
+```
+taurus-stack/                          ← Root (this repo, aggregation only)
+├── .gitmodules                        ← Submodule definitions
+├── README.md / README.zh-CN.md        ← You are here
+├── docs/                              ← Cross-repository documentation
+│
+├── taurus-backend/  🔧 git submodule  ← Django 4.2 + dvadmin (API server)
+│   ├── application/                   ← Django project config
+│   ├── taurus/                        ← Business logic + Edition Gate
+│   │   ├── editions/                  ← Community vs Enterprise abstract
+│   │   ├── ee_fallback.py             ← CE stub when taurus_ee missing
+│   │   └── serializers.py / views.py  ← Thin wrappers with try/except
+│   ├── certs/                         ← CA certificates (gitignored)
+│   └── plugins/taurus_ee → ../../taurus_ee/   ← Dev symlink (gitignored)
+│
+├── taurus-web/      🔧 git submodule  ← Vue 3 + TS + Element Plus + fast-crud
+├── taurus-executor/ 🔧 git submodule  ← Python + gRPC remote executor
+├── taurus-supervisor/ 🔧 git submodule ← asyncio host daemon
+├── taurus-auth/     🔧 git submodule  ← Django ticket-based auth service
+├── taurus-scheduler/ 🔧 git submodule ← APScheduler standalone service
+│
+└── taurus_ee/       🔒 PRIVATE REPO   ← Enterprise Edition (never public)
+    ├── license.py                     ← RSA-PSS-SHA256 verify-only
+    ├── apps.py                        ← Django app ready() injection
+    ├── services/                      ← Approval, Notification, HA...
+    ├── workflow_units/                ← DAG execution units
+    └── management/commands/           ← license_status, license_import
+```
+
+### Clone the full stack
 
 ```bash
-cd taurus-portal
+# Clone with all submodules
+git clone --recurse-submodules https://github.com/taurus-ops/taurus-stack.git
+cd taurus-stack
 
-# 1) 安装依赖（首次可跑 `pnpm approve-builds simple-git-hooks` 允许 postinstall 写入 pre-commit 钩子）
-CI=true pnpm install
+# Update submodules to latest
+git submodule update --remote --recursive
 
-# 2) 注册 git hooks（postinstall 会自动跑，也可手动）
-pnpm hooks:install
-
-# 3) 启动（默认 8082，可在 .env 中 VITE_PORT=8083 覆盖）
-pnpm dev
-# http://localhost:8082/
+# Individual submodule URLs: see .gitmodules
 ```
 
-### 2.3 生产构建
+> **Note**: `taurus_ee` (Enterprise Edition) is NOT a public submodule. Enterprise customers receive it as a PyArmor/Cython-obfuscated Python wheel: `pip install taurus_ee-*.whl`. The `taurus_ee/` directory in this repo is permanently gitignored.
+
+---
+
+## Quick Start
+
+### Prerequisites
+
+- Python 3.12+
+- Node.js >= 18.0.0
+- MySQL/MariaDB (8.0+)
+- Redis (6.0+)
+- Poetry (Python dependency management)
+- pnpm (Frontend dependency management)
+
+### Development Setup (Community Edition)
 
 ```bash
-pnpm build                              # vue-tsc --noEmit && vite build
-node scripts/check-dist.mjs             # 构建健康门（等同 pnpm check-dist）
+# 0. Clone with submodules
+git clone --recurse-submodules https://github.com/taurus-ops/taurus-stack.git
+cd taurus-stack
+
+# 1. Backend
+cd taurus-backend
+poetry install
+cp conf/env.example.py conf/env.py     # Edit DB/Redis/secret values
+poetry run python manage.py migrate
+poetry run python manage.py runserver 0.0.0.0:8000
+
+# 2. Auth (another terminal)
+cd taurus-auth
+poetry install
+cp .env.example .env                   # Match shared secret with backend
+poetry run python manage.py migrate
+poetry run python manage.py runserver 0.0.0.0:8001
+
+# 3. Web (another terminal)
+cd taurus-web
+pnpm install
+pnpm run dev                           # Vite dev server on port 3000
+
+# 4. Register a remote host
+curl -fsSL http://localhost:8000/api/taurus/supervisor/install_script/ \
+  | bash -s -- --token <your-token> --auto-install
 ```
 
-### 2.4 联系表单 / 后端对接
-
-两种方式：
-
-**A. 同源反代（推荐，生产默认）** — nginx 中已将 `/api` 反代到 taurus-backend 8000。
-
-- portal 发 `POST /api/taurus/contact-lead/` → 直接命中后端，不需要额外配置。
-
-**B. 本地分离开发（后端跑在本机 8000）**：
-
-- 复制 `.env.example` 为 `.env.development.local`，写入：
-  ```dotenv
-  VITE_API_BASE_URL=http://localhost:8000/api
-  ```
-- `pnpm dev` 即可。
-
-**迁移数据库（如果还没有跑过 `0015_contact_lead`）**：
+### Docker Compose
 
 ```bash
-cd ../taurus-backend
-conda run -n taurus poetry run python manage.py migrate taurus
+docker-compose up -d
+docker-compose logs -f taurus-backend
 ```
 
----
-
-## 3. 脚本速查
+### Enterprise Edition (after receiving license)
 
 ```bash
-pnpm dev                 # 开发模式 Vite
-pnpm build               # TS 检查 + 生产构建
-pnpm preview             # 预览构建产物 (vite preview)
-pnpm type-check          # vue-tsc --noEmit
-pnpm lint                # ESLint 扫描（warning 不阻断，error 才阻断）
-pnpm lint:fix            # ESLint --fix
-pnpm format              # Prettier --write
-pnpm format:check        # Prettier --check
-pnpm hooks:install       # simple-git-hooks 将 pre-commit = lint-staged 写入 .git/hooks/
-pnpm check-dist          # scripts/check-dist.mjs：8 项构建健康断言
+# Install the EE wheel (customer-specific build)
+poetry add /path/to/taurus_ee-2.0.0-py3-none-any.whl
+
+# Or place the symlink in development
+ln -s /path/to/taurus_ee taurus-backend/plugins/taurus_ee
+
+# Import your signed license
+python manage.py license_import ./license.lic --force
+
+# Verify it's active
+python manage.py license_status
+# → License valid: True, Feature Gate: 77/77 (全部放行)
 ```
 
 ---
 
-## 4. 代码组织
+## Security
+
+### Certificate Management
 
 ```
-taurus-portal/
-├── index.html                         # 静态 SEO fallback（title / canonical / JSON-LD Organization）
-├── vite.config.ts                     # manualChunks 框架 + 三语 locale 独立拆分
-├── eslint.config.mjs                  # ESLint 9 flat：js.recommended + ts.recommended + vue/flat/recommended + prettier 冲突关闭
-├── .prettierrc.json / .prettierignore
-├── .lintstagedrc.json / .simple-git-hooks.json
-├── .env.example / .env.development / .env.production
-├── Dockerfile                         # node:20-alpine build → nginx:1.27-alpine serve；构建后执行 check-dist.mjs
-├── nginx.conf                         # gzip + SPA fallback + assets Cache-Control
-├── scripts/check-dist.mjs             # 8 项构建健康断言（CI/CD gate）
-├── public/
-│   ├── favicon.ico
-│   ├── robots.txt                     # 含 Sitemap: /sitemap.xml
-│   └── sitemap.xml                    # 首页 + 5 内页
-└── src/
-    ├── main.ts                        # createApp(Pinia/Router/i18n/Head)
-    ├── App.vue                        # 路由 view + 过渡 + IntersectionObserver reveal
-    ├── router/index.ts                # 7 routes + 404 + meta.title 同步 + /#contact 跳回首页锚
-    ├── types/index.ts                 # Portal 全局类型定义
-    ├── utils/request.ts               # axios instance（baseURL = VITE_API_BASE_URL || /api，响应拦截器 unwrap）
-    ├── api/contact.ts                 # POST /taurus/contact-lead/；失败降级 mock
-    ├── stores/
-    │   ├── locale.ts                  # locale 切换（zh-cn / en / zh-tw）
-    │   └── theme.ts                   # ThemePref (light/dark/system) + resolvedTheme + html data-theme + 持久化
-    ├── styles/
-    │   ├── variables.scss             # 设计 token + SCSS 附加数据注入
-    │   ├── reset.scss                 # Meyer 风格全局 reset
-    │   └── global.scss                # 全站语义变量、布局、语义类、features-grid 3 列；含 [data-theme='dark'] 深色覆盖
-    ├── i18n/
-    │   ├── index.ts                   # createI18n legacy:false + 按语言动态加载
-    │   ├── {zh-cn,en,zh-tw}.ts        # P0–P1 单文件 re-export 兼容层
-    │   └── locales/{zh-cn,en,zh-tw}/
-    │       ├── index.ts               # deepMerge 7 模块 + 导出
-    │       ├── {common,locale,nav,footer,hero,homeSections,contactForm,views}.ts
-    ├── components/
-    │   ├── layout/{NavBar,Footer}.vue
-    │   └── sections/{Hero,Overview,Features,Architecture,Solutions,Testimonials,ContactForm}.vue
-    └── views/
-        ├── HomeView.vue               # useHead canonical + Organization JSON-LD
-        ├── ProductView.vue            # 6 模块 × 特性表
-        ├── SolutionsView.vue          # 行业 + CTA
-        ├── DocsView.vue               # 4 段文档导航 + FAQ ×6
-        ├── DownloadView.vue           # 6 模块安装方式 + Docker 12 行 docker-compose 脚手架
-        ├── AboutView.vue              # 价值观 / 路线图 / 协议 / 贡献 / 联系信息（TODO 占位，不填真号）
-        └── NotFoundView.vue           # 404
+taurus-backend/certs/           (gitignored — secrets never committed)
+├── ca.crt                      # CA certificate (public, distributable)
+├── ca.key                      # ⚠️ CA private key (keep offline!)
+├── client.crt                  # Client certificate
+├── client.key                  # ⚠️ Client private key
+└── openssl.cnf                 # OpenSSL configuration
 ```
+
+### License System (Enterprise Only)
+
+```
+┌─ Issuer (private signing server) ─────────────────────────────┐
+│  scripts/license_signer.py          (gitignored, private-only) │
+│  scripts/secrets/license_signer_privkey.pem                    │
+│  RSA-2048 Private Key (chmod 600, never leaves issuer)        │
+└───────────────────────────────────────────────────────────────┘
+           │  signs JSON payload + base64 → .lic file
+           ▼
+┌─ License File (delivered to customer) ──────────────────────┐
+│  license.lic                                                  │
+│  {customer_id, customer_name, tier, expires_at, features,     │
+│   quota, machine_fp?} + Base64(RSA-PSS-SHA256 signature)    │
+└───────────────────────────────────────────────────────────────┘
+           │  loaded at runtime
+           ▼
+┌─ Taurus EE Runtime (taurus_ee/license.py) ────────────────────┐
+│  • RSA-PSS-SHA256 signature verification                      │
+│  • Expiration check                                           │
+│  • Machine fingerprint matching (optional, anti-vm)          │
+│  • Tamper detection (sort_keys JSON canonicalization)         │
+│                                                               │
+│  ⚠️ NO signing code — verification only                       │
+│  ⚠️ NO private key — only hardcoded RSA public key           │
+└───────────────────────────────────────────────────────────────┘
+```
+
+**Gate mechanism**: `has_feature()` checks **both** `TAURUS_EDITION=enterprise` **AND** `license.valid=True`. Either fails → all EE features return False.
+
+### Environment Variables
+
+| Variable                     | Service           | Description                              | Default                    |
+| ---------------------------- | ----------------- | ---------------------------------------- | -------------------------- |
+| `TAURUS_EDITION`             | Backend           | `community` or `enterprise`              | `community`                |
+| `TAURUS_LICENSE_FILE`        | Backend           | Path to `.lic` file                      | Auto-detected              |
+| `TAURUS_DEV_BYPASS_LICENSE`  | Backend           | Set `1` to skip license check (dev only) | unset                      |
+| `TAURUS_SIGNER_PRIVKEY_PATH` | License Signer    | Path to RSA private key                  | unset                      |
+| `AUTH_SERVICE_URL`           | Backend/Auth      | Auth service base URL                    | `http://localhost:8001`    |
+| `REDIS_URL`                  | Backend/Scheduler | Redis connection                         | `redis://localhost:6379/0` |
 
 ---
 
-## 5. 联系信息占位策略（当前版本）
+## Documentation
 
-根据开发阶段决策：**官网门户 P2 阶段不填真实电话 / 邮箱 / IM / 地址**。
+Cross-repository design docs live in this root repo:
 
-- `Home > ContactForm.vue`：联系表单功能完全可用（axios 真实入库 ContactLead），是当前唯一可交互的联系入口。
-- `About > 联系方式卡片`：4 项 `desc` 字段保留 `TODO` 占位文案，可在对外上线前一次性替换。
+- [docs/architecture.md](docs/architecture.md) — System architecture, protocols, data flow
+- [docs/editions.md](docs/editions.md) — Community vs Enterprise separation, License security design
+- [CONTRIBUTING.md](CONTRIBUTING.md) — Multi-repository development workflow
 
----
+Service-specific docs live in each subrepo:
 
-## 6. Docker 部署
-
-```bash
-# 构建镜像（buildx 会缓存 pnpm store、layers）
-docker build -t taurus-portal:0.3.0 .
-
-# 本地试运行
-docker run --rm -p 8080:80 --name tp taurus-portal:0.3.0
-curl -I http://localhost:8080/            # 200 OK，已存在 canonical + JSON-LD
-docker rm -f tp
-```
+- [taurus-backend/docs/](taurus-backend/docs/) — API, models, Edition dev guide
+- [taurus-executor/docs/](taurus-executor/docs/) — gRPC executor, deployment, upgrade
+- [taurus-supervisor/](taurus-supervisor/README.md) — Host daemon, communication protocol
 
 ---
 
-## 7. 许可证 / 协议
+## Contributing
 
-- Portal (本站代码)：AGPL-3.0-only (与主仓库 LICENSE 保持一致)
-- 第三方依赖：见各子包 `package.json` / `LICENSE` 文件
+Please read [CONTRIBUTING.md](CONTRIBUTING.md) for details on our multi-repository development workflow, branching strategy, and code review process.
+
+For security issues, see the `SECURITY.md` in each subproject.
 
 ---
 
-最后一条：保持 Karpathy 风格，修改要**精准**、验证要**闭环**。任何改动请跑：
+## License
 
-```bash
-pnpm run type-check && pnpm run build && pnpm check-dist && pnpm lint
-```
+- **Community Edition**: GNU Affero General Public License v3.0 — see [LICENSE](LICENSE)
+- **Enterprise Edition**: Proprietary commercial license — contact sales
+
+---
+
+## Links
+
+| Service          | Repository                                                           | Issues                                                                |
+| ---------------- | -------------------------------------------------------------------- | --------------------------------------------------------------------- |
+| **Portal**       | [taurus-portal](https://github.com/taurus-stack/taurus-portal)       | [site](https://taurus-stack.github.io/taurus-portal/)                 |
+| Backend          | [taurus-backend](https://github.com/taurus-ops/taurus-backend)       | [tracker](https://github.com/taurus-ops/taurus-backend/issues)        |
+| Web              | [taurus-web](https://github.com/taurus-ops/taurus-web)               | [tracker](https://github.com/taurus-ops/taurus-web/issues)            |
+| Executor         | [taurus-executor](https://github.com/taurus-ops/taurus-executor)     | [tracker](https://github.com/taurus-ops/taurus-executor/issues)       |
+| Supervisor       | [taurus-supervisor](https://github.com/taurus-ops/taurus-supervisor) | [tracker](https://github.com/taurus-ops/taurus-supervisor/issues)     |
+| Auth             | [taurus-auth](https://github.com/taurus-ops/taurus-auth)             | [tracker](https://github.com/taurus-ops/taurus-auth/issues)           |
+| Scheduler        | [taurus-scheduler](https://github.com/taurus-ops/taurus-scheduler)   | [tracker](https://github.com/taurus-ops/taurus-scheduler/issues)      |
+| **Stack (this)** | [taurus-stack](https://github.com/taurus-ops/taurus-stack)           | [discussions](https://github.com/taurus-ops/taurus-stack/discussions) |
