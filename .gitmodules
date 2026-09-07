@@ -1,6 +1,3 @@
-[submodule "taurus-backend"]
-	path = taurus-backend
-	url = https://github.com/taurus-stack/taurus-backend
 [submodule "taurus-executor"]
 	path = taurus-executor
 	url = https://github.com/taurus-stack/taurus-executor
@@ -19,3 +16,6 @@
 [submodule "taurus-portal"]
 	path = taurus-portal
 	url = git@github.com:taurus-stack/taurus-portal.git
+[submodule "taurus-backend"]
+	path = taurus-backend
+	url = https://github.com/taurus-stack/taurus-backend.git
